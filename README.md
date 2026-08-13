@@ -14,6 +14,8 @@ A public site for devotees, replacing the thin current pages at [kodungallursree
 
 Pooja and donation forms work in the browser (they confirm the request). They are not yet wired to the Cochin Devaswom Board payment or booking APIs. Links to the current official booking and donation pages are kept.
 
+The header has an **EN / മല** switch. The choice is saved in the browser and applies on every page.
+
 ## How to open locally
 
 This is a static site. From this folder:

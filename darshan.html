@@ -5,9 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Darshan &amp; pooja — Kodungallur Temple</title>
   <meta name="description" content="Darshan timings, vazhipadu, dress code and pooja request for Kodungallur Sree Kurumba Bhagavathy Temple.">
+  <script>
+    (function () {
+      var lang = localStorage.getItem("temple-lang") === "ml" ? "ml" : "en";
+      document.documentElement.lang = lang;
+      document.documentElement.classList.toggle("lang-ml", lang === "ml");
+      document.documentElement.classList.add("i18n-wait");
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="darshan">
@@ -15,66 +23,66 @@
     <section class="page-banner">
       <img src="assets/images/evening-lamps.jpg" alt="Oil lamps at dusk">
       <div class="wrap">
-        <p class="eyebrow">Nada opens at 4:00 AM</p>
-        <h1>Darshan &amp; pooja</h1>
+        <p class="eyebrow" data-i18n="dar.eyebrow">Nada opens at 4:00 AM</p>
+        <h1 data-i18n="dar.h1">Darshan &amp; pooja</h1>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap split">
         <div>
-          <p class="kicker">Daily rhythm</p>
-          <h2>When the temple is open</h2>
-          <p>Morning session 4:00 AM to 12:00 noon. Evening session 4:00 PM to 8:00 PM. Guruthy follows the night closing. Festival days and special nivedyam can shift the clock — ask at the counter when you arrive.</p>
-          <p>Tuesdays, Fridays, and the Sabarimala season are the busiest. A head bath before darshan is the usual custom.</p>
+          <p class="kicker" data-i18n="dar.kicker.daily">Daily rhythm</p>
+          <h2 data-i18n="dar.h2.open">When the temple is open</h2>
+          <p data-i18n="dar.p.open1">Morning session 4:00 AM to 12:00 noon. Evening session 4:00 PM to 8:00 PM. Guruthy follows the night closing. Festival days and special nivedyam can shift the clock — ask at the counter when you arrive.</p>
+          <p data-i18n="dar.p.open2">Tuesdays, Fridays, and the Sabarimala season are the busiest. A head bath before darshan is the usual custom.</p>
         </div>
         <div>
           <table class="timetable">
             <thead>
-              <tr><th>Time</th><th>Ritual</th></tr>
+              <tr><th data-i18n="dar.th.time">Time</th><th data-i18n="dar.th.ritual">Ritual</th></tr>
             </thead>
             <tbody>
-              <tr><td><time>4:00 AM</time></td><td>Temple opens</td></tr>
-              <tr><td><time>4:30 AM</time></td><td>Malar Nivedyam</td></tr>
-              <tr><td><time>6:30 AM</time></td><td>Usha Nivedyam</td></tr>
-              <tr><td><time>7:00 AM</time></td><td>Pantheeradi Nivedyam</td></tr>
-              <tr><td><time>7:30 AM</time></td><td>Pantheeradi Pooja</td></tr>
-              <tr><td><time>11:00 AM</time></td><td>Ucha Nivedyam</td></tr>
-              <tr><td><time>11:30 AM</time></td><td>Ucha Pooja</td></tr>
-              <tr><td><time>12:00 PM</time></td><td>Nada closes</td></tr>
-              <tr><td><time>4:00 PM</time></td><td>Nada reopens</td></tr>
-              <tr><td><time>6:15 PM</time></td><td>Deeparadhana</td></tr>
-              <tr><td><time>7:00 PM</time></td><td>Athazha Nivedyam</td></tr>
-              <tr><td><time>7:30 PM</time></td><td>Athazha Pooja</td></tr>
-              <tr><td><time>8:00 PM</time></td><td>Nada closes</td></tr>
-              <tr><td><time>8:30 PM</time></td><td>Guruthy Pooja</td></tr>
+              <tr><td><time>4:00 AM</time></td><td data-i18n="dar.t.open">Temple opens</td></tr>
+              <tr><td><time>4:30 AM</time></td><td data-i18n="dar.t.malar">Malar Nivedyam</td></tr>
+              <tr><td><time>6:30 AM</time></td><td data-i18n="dar.t.usha">Usha Nivedyam</td></tr>
+              <tr><td><time>7:00 AM</time></td><td data-i18n="dar.t.pantn">Pantheeradi Nivedyam</td></tr>
+              <tr><td><time>7:30 AM</time></td><td data-i18n="dar.t.pantp">Pantheeradi Pooja</td></tr>
+              <tr><td><time>11:00 AM</time></td><td data-i18n="dar.t.uchan">Ucha Nivedyam</td></tr>
+              <tr><td><time>11:30 AM</time></td><td data-i18n="dar.t.uchap">Ucha Pooja</td></tr>
+              <tr><td><time>12:00 PM</time></td><td data-i18n="dar.t.close">Nada closes</td></tr>
+              <tr><td><time>4:00 PM</time></td><td data-i18n="dar.t.reopen">Nada reopens</td></tr>
+              <tr><td><time>6:15 PM</time></td><td data-i18n="dar.t.deepa">Deeparadhana</td></tr>
+              <tr><td><time>7:00 PM</time></td><td data-i18n="dar.t.athn">Athazha Nivedyam</td></tr>
+              <tr><td><time>7:30 PM</time></td><td data-i18n="dar.t.athp">Athazha Pooja</td></tr>
+              <tr><td><time>8:00 PM</time></td><td data-i18n="dar.t.close2">Nada closes</td></tr>
+              <tr><td><time>8:30 PM</time></td><td data-i18n="dar.t.guruthy">Guruthy Pooja</td></tr>
             </tbody>
           </table>
-          <p class="source">From the official temple timing page and the e-Kshetra listing that mirrors it.</p>
+          <p class="source" data-i18n="dar.src">From the official temple timing page and the e-Kshetra listing that mirrors it.</p>
         </div>
       </div>
     </section>
 
     <section class="section" style="background: var(--parchment);">
       <div class="wrap">
-        <p class="kicker">Vazhipadu</p>
-        <h2>Offerings</h2>
+        <p class="kicker" data-i18n="dar.kicker.vazhi">Vazhipadu</p>
+        <h2 data-i18n="dar.h2.off">Offerings</h2>
         <div class="compound">
           <article>
-            <h3>Nakshatra Pushpanjali</h3>
-            <p>Flower offering in the name of a birth star. One of the two vazhipadu highlighted on the present official site.</p>
+            <h3 data-i18n="dar.off.nak.h">Nakshatra Pushpanjali</h3>
+            <p data-i18n="dar.off.nak.p">Flower offering in the name of a birth star. One of the two vazhipadu highlighted on the present official site.</p>
           </article>
           <article>
-            <h3>Guruthy</h3>
-            <p>The night offering associated with Bhadrakali. Performed after the nada closes. Book ahead on crowded days.</p>
+            <h3 data-i18n="dar.off.gur.h">Guruthy</h3>
+            <p data-i18n="dar.off.gur.p">The night offering associated with Bhadrakali. Performed after the nada closes. Book ahead on crowded days.</p>
           </article>
           <article>
-            <h3>Archana &amp; Rektha Pushpanjali</h3>
-            <p>Name-and-star archana, and the red-flower offering used in this Shakta house.</p>
+            <h3 data-i18n="dar.off.arch.h">Archana &amp; Rektha Pushpanjali</h3>
+            <p data-i18n="dar.off.arch.p">Name-and-star archana, and the red-flower offering used in this Shakta house.</p>
           </article>
           <article>
-            <h3>Turmeric, pepper, anklet</h3>
-            <p>Common festival offerings include turmeric, pepper, coconut, and — remembering Kannagi — an anklet. Vysoori is offered turmeric and rice bran.</p>
+            <h3 data-i18n="dar.off.tur.h">Turmeric, pepper, anklet</h3>
+            <p data-i18n="dar.off.tur.p">Common festival offerings include turmeric, pepper, coconut, and — remembering Kannagi — an anklet. Vysoori is offered turmeric and rice bran.</p>
           </article>
         </div>
       </div>
@@ -83,36 +91,36 @@
     <section class="section" id="pooja">
       <div class="wrap split">
         <div>
-          <p class="kicker">Book a pooja</p>
-          <h2>Send a vazhipadu request</h2>
-          <p>This form collects your request for the temple office. For the existing online counter, you may also use the official booking page. Book special vazhipadu at least five days ahead when you can.</p>
-          <p><a href="https://kodungallursreekurumbabhagavathytemple.org/users/poojabooking" rel="noopener">Open the official booking site →</a></p>
+          <p class="kicker" data-i18n="dar.kicker.book">Book a pooja</p>
+          <h2 data-i18n="dar.h2.req">Send a vazhipadu request</h2>
+          <p data-i18n="dar.p.req">This form collects your request for the temple office. For the existing online counter, you may also use the official booking page. Book special vazhipadu at least five days ahead when you can.</p>
+          <p><a href="https://kodungallursreekurumbabhagavathytemple.org/users/poojabooking" rel="noopener" data-i18n="dar.a.official">Open the official booking site →</a></p>
         </div>
         <div class="form-card">
-          <form data-confirm="Your pooja request has been noted on this site. Please also confirm by phone at 0480 280 3061 or through the official booking page until the new counter is connected.">
+          <form data-i18n-confirm="dar.confirm" data-confirm="Your pooja request has been noted on this site. Please also confirm by phone at 0480 280 3061 or through the official booking page until the new counter is connected.">
             <div class="form-row">
-              <label>Name <input name="name" required></label>
-              <label>Star (nakshatra) <input name="star"></label>
+              <label><span data-i18n="form.name">Name</span> <input name="name" required></label>
+              <label><span data-i18n="form.star">Star (nakshatra)</span> <input name="star"></label>
             </div>
             <div class="form-row">
-              <label>Phone <input name="phone" type="tel" required></label>
-              <label>Email <input name="email" type="email"></label>
+              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" required></label>
+              <label><span data-i18n="form.email">Email</span> <input name="email" type="email"></label>
             </div>
-            <label>Offering
+            <label><span data-i18n="form.offering">Offering</span>
               <select name="offering" required>
-                <option value="nakshatra">Nakshatra Pushpanjali</option>
-                <option value="guruthy">Guruthy</option>
-                <option value="archana">Archana</option>
-                <option value="rektha">Rektha Pushpanjali</option>
-                <option value="other">Other / please advise</option>
+                <option value="nakshatra" data-i18n="opt.nak">Nakshatra Pushpanjali</option>
+                <option value="guruthy" data-i18n="opt.gur">Guruthy</option>
+                <option value="archana" data-i18n="opt.arch">Archana</option>
+                <option value="rektha" data-i18n="opt.rek">Rektha Pushpanjali</option>
+                <option value="other" data-i18n="opt.other">Other / please advise</option>
               </select>
             </label>
             <div class="form-row">
-              <label>Preferred date <input name="date" type="date"></label>
-              <label>Number of persons <input name="persons" type="number" min="1" value="1"></label>
+              <label><span data-i18n="form.date">Preferred date</span> <input name="date" type="date"></label>
+              <label><span data-i18n="form.persons">Number of persons</span> <input name="persons" type="number" min="1" value="1"></label>
             </div>
-            <label>Notes <textarea name="notes" placeholder="Gothram, address for prasadam, or special request"></textarea></label>
-            <button class="btn btn-blood" type="submit">Submit request</button>
+            <label><span data-i18n="form.notes">Notes</span> <textarea name="notes" data-i18n-placeholder="form.notes.ph" placeholder="Gothram, address for prasadam, or special request"></textarea></label>
+            <button class="btn btn-blood" type="submit" data-i18n="form.submit.pooja">Submit request</button>
             <p class="form-success" role="status"></p>
           </form>
         </div>
@@ -121,31 +129,32 @@
 
     <section class="section" style="background: #fff;">
       <div class="wrap">
-        <p class="kicker">Before you enter</p>
-        <h2>Dress and custom</h2>
+        <p class="kicker" data-i18n="dar.kicker.before">Before you enter</p>
+        <h2 data-i18n="dar.h2.dress">Dress and custom</h2>
         <div class="cards">
           <article class="card">
             <div class="card-body">
-              <h3>Dress</h3>
-              <p>Men: mundu or veshti. Women: sari, set mundu, or salwar kameez with dupatta. This is the custom reported by devotees; the counter will guide you if you are unsure.</p>
+              <h3 data-i18n="dar.dress.h">Dress</h3>
+              <p data-i18n="dar.dress.p">Men: mundu or veshti. Women: sari, set mundu, or salwar kameez with dupatta. This is the custom reported by devotees; the counter will guide you if you are unsure.</p>
             </div>
           </article>
           <article class="card">
             <div class="card-body">
-              <h3>Photography</h3>
-              <p>No photographs inside the temple. The images on this site are of the outer courtyard, festivals in the open, or paintings of legend — never a camera in the sanctum.</p>
+              <h3 data-i18n="dar.photo.h">Photography</h3>
+              <p data-i18n="dar.photo.p">No photographs inside the temple. The images on this site are of the outer courtyard, festivals in the open, or paintings of legend — never a camera in the sanctum.</p>
             </div>
           </article>
           <article class="card">
             <div class="card-body">
-              <h3>The day</h3>
-              <p>At different hours she is worshipped as Saraswati, Lakshmi, and Durga-Kannagi. If you can, stay for Deeparadhana. Do not treat Bharani as a spectacle; it is worship, even when it is loud.</p>
+              <h3 data-i18n="dar.day.h">The day</h3>
+              <p data-i18n="dar.day.p">At different hours she is worshipped as Saraswati, Lakshmi, and Durga-Kannagi. If you can, stay for Deeparadhana. Do not treat Bharani as a spectacle; it is worship, even when it is loud.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
   </main>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

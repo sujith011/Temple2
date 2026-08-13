@@ -88,8 +88,11 @@ a:hover {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1.2rem;
+}
+
+.nav {
+  margin-left: auto;
 }
 
 .brand {
@@ -162,6 +165,37 @@ a:hover {
   color: #fff;
 }
 
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.lang-switch {
+  display: inline-flex;
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.lang-btn {
+  border: 0;
+  background: transparent;
+  color: var(--teak);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 0.42rem 0.7rem;
+  cursor: pointer;
+}
+
+.lang-btn[aria-pressed="true"] {
+  background: var(--blood);
+  color: var(--ivory);
+}
+
 .nav-toggle {
   display: none;
   border: 1px solid var(--gold);
@@ -171,6 +205,34 @@ a:hover {
   height: 44px;
   border-radius: 10px;
   font-size: 1.3rem;
+}
+
+html.lang-ml body {
+  font-family: "Noto Sans Malayalam", "Source Sans 3", sans-serif;
+  line-height: 1.85;
+}
+
+html.lang-ml h2,
+html.lang-ml h3,
+html.lang-ml h4,
+html.lang-ml .page-banner h1,
+html.lang-ml .fact b,
+html.lang-ml .ritual b,
+html.lang-ml .hero .lede {
+  font-family: "Noto Serif Malayalam", "Cormorant Garamond", serif;
+}
+
+html.lang-ml .nav a,
+html.lang-ml .kicker,
+html.lang-ml .eyebrow,
+html.lang-ml .brand-en {
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
+html.i18n-wait.lang-ml [data-i18n],
+html.i18n-wait.lang-ml [data-i18n-html] {
+  opacity: 0;
 }
 
 /* Hero */
@@ -846,6 +908,10 @@ textarea {
   .nav-toggle {
     display: inline-grid;
     place-items: center;
+  }
+
+  .header-tools {
+    margin-left: auto;
   }
 
   .nav {

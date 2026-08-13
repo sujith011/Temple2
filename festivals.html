@@ -5,9 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Festivals — Kodungallur Bharani &amp; Thalappoli</title>
   <meta name="description" content="Kodungallur Bharani, Kavu Theendal, Thalappoli, Navaratri and Chandattam at Sree Kurumba Bhagavathy Temple.">
+  <script>
+    (function () {
+      var lang = localStorage.getItem("temple-lang") === "ml" ? "ml" : "en";
+      document.documentElement.lang = lang;
+      document.documentElement.classList.toggle("lang-ml", lang === "ml");
+      document.documentElement.classList.add("i18n-wait");
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="festivals">
@@ -15,19 +23,19 @@
     <section class="page-banner">
       <img src="assets/images/official-bharani.png" alt="Velichappads in red during Kodungallur Bharani">
       <div class="wrap">
-        <p class="eyebrow">Utsavam</p>
-        <h1>Festivals</h1>
+        <p class="eyebrow" data-i18n="fest.eyebrow">Utsavam</p>
+        <h1 data-i18n="fest.h1">Festivals</h1>
       </div>
     </section>
 
     <section class="section" id="bharani">
       <div class="wrap split">
         <div>
-          <p class="kicker">Meenam · March–April</p>
-          <h2>Kodungallur Bharani</h2>
-          <p>The temple’s great festival runs from the Bharani asterism in Kumbham to seven days after the Bharani of Meenam. Kerala Tourism describes it as one of the most intense celebrations in the state — a sea of red, and often called the largest gathering of oracles (<em>velichappad</em>) in the world.</p>
-          <p>It is not a polished pooram. It is old Shakta and folk devotion: oracles in red, bronze anklets, sickles, turmeric, and songs that address the mother without courtesy. Tradition says she accepts even harsh speech, because a mother hears every voice.</p>
-          <p class="note">Live animal sacrifice is <strong>not</strong> part of the sanctioned modern festival. It has been banned since 1978. What remains of <em>Kozhikkallu moodal</em> is symbolic — red silk over the stones.</p>
+          <p class="kicker" data-i18n="fest.kicker.meenam">Meenam · March–April</p>
+          <h2 data-i18n="fest.h2.bharani">Kodungallur Bharani</h2>
+          <p data-i18n="fest.p.b1">The temple’s great festival runs from the Bharani asterism in Kumbham to seven days after the Bharani of Meenam. Kerala Tourism describes it as one of the most intense celebrations in the state — a sea of red, and often called the largest gathering of oracles (velichappad) in the world.</p>
+          <p data-i18n="fest.p.b2">It is not a polished pooram. It is old Shakta and folk devotion: oracles in red, bronze anklets, sickles, turmeric, and songs that address the mother without courtesy. Tradition says she accepts even harsh speech, because a mother hears every voice.</p>
+          <p class="note" data-i18n-html="fest.note.ban">Live animal sacrifice is <strong>not</strong> part of the sanctioned modern festival. It has been banned since 1978. What remains of <em>Kozhikkallu moodal</em> is symbolic — red silk over the stones.</p>
         </div>
         <div class="frame">
           <img src="assets/images/official-bharani.png" alt="Oracles moving through the Bharani crowd">
@@ -37,42 +45,42 @@
       <div class="wrap mt-2">
         <div class="rituals">
           <article class="ritual">
-            <b>Kozhikkallu moodal</b>
-            <p>The opening. Once a rooster was offered on red silk over stones around the idol, standing for Kali’s fight with Darika. The first-cock right is associated with the Thacholi clan of Vadakara. Today the stones are covered with red silk. Flags of the Venad family are hoisted on a peepul in the north-east.</p>
+            <b data-i18n="fest.r.kozh.h">Kozhikkallu moodal</b>
+            <p data-i18n="fest.r.kozh.p">The opening. Once a rooster was offered on red silk over stones around the idol, standing for Kali’s fight with Darika. The first-cock right is associated with the Thacholi clan of Vadakara. Today the stones are covered with red silk. Flags of the Venad family are hoisted on a peepul in the north-east.</p>
           </article>
           <article class="ritual">
-            <b>Kavu Theendal</b>
-            <p>The heart of Bharani, often on Aswathy, the day before Bharani. The King of Kodungallur unfurls a red umbrella. Oracles run around the temple, strike the rafters, and throw turmeric, coconuts and offerings onto the inner quadrangle — ritually “polluting” the kavu. The temple then closes about a week for purification.</p>
+            <b data-i18n="fest.r.kavu.h">Kavu Theendal</b>
+            <p data-i18n="fest.r.kavu.p">The heart of Bharani, often on Aswathy, the day before Bharani. The King of Kodungallur unfurls a red umbrella. Oracles run around the temple, strike the rafters, and throw turmeric, coconuts and offerings onto the inner quadrangle — ritually “polluting” the kavu. The temple then closes about a week for purification.</p>
           </article>
           <article class="ritual">
-            <b>Bharanippattu</b>
-            <p>Raw ballads sung to the goddess. They can be abusive or erotic. This is not mockery from outside; it is a permitted form of address, kept by the festival itself. The most unrestrained song was traditionally given a prize by the king.</p>
+            <b data-i18n="fest.r.pattu.h">Bharanippattu</b>
+            <p data-i18n="fest.r.pattu.p">Raw ballads sung to the goddess. They can be abusive or erotic. This is not mockery from outside; it is a permitted form of address, kept by the festival itself. The most unrestrained song was traditionally given a prize by the king.</p>
           </article>
           <article class="ritual">
-            <b>Revathi vilakku</b>
-            <p>The lighting of the traditional lamp that marks the sacred time of the festival.</p>
+            <b data-i18n="fest.r.rev.h">Revathi vilakku</b>
+            <p data-i18n="fest.r.rev.p">The lighting of the traditional lamp that marks the sacred time of the festival.</p>
           </article>
           <article class="ritual">
-            <b>Chandanapoti Charthal</b>
-            <p>Also called Thrichandanacharthu. The image is smeared with sandalwood paste after the fury of Theendal has passed.</p>
+            <b data-i18n="fest.r.chan.h">Chandanapoti Charthal</b>
+            <p data-i18n="fest.r.chan.p">Also called Thrichandanacharthu. The image is smeared with sandalwood paste after the fury of Theendal has passed.</p>
           </article>
           <article class="ritual">
-            <b>Punyaham</b>
-            <p>After Theendal the premises are swept and the wells purified. This is when Namboodiri priests enter to perform the cleansing, with <em>pasu dhanam</em>, the gift of cows. Prasadam taken home is sandal mixed with turmeric, and <em>chantu</em> — a black paste of burnt rice.</p>
+            <b data-i18n="fest.r.pun.h">Punyaham</b>
+            <p data-i18n="fest.r.pun.p">After Theendal the premises are swept and the wells purified. This is when Namboodiri priests enter to perform the cleansing, with pasu dhanam, the gift of cows. Prasadam taken home is sandal mixed with turmeric, and chantu — a black paste of burnt rice.</p>
           </article>
         </div>
-        <p class="source mt-2">Sources: Wikipedia (Kodungallur Bharani festival); Kerala Tourism event page and 1000 Festivals PDF; Vanamali Ashram.</p>
+        <p class="source mt-2" data-i18n="fest.src">Sources: Wikipedia (Kodungallur Bharani festival); Kerala Tourism event page and 1000 Festivals PDF; Vanamali Ashram.</p>
       </div>
     </section>
 
     <section class="section" id="thalappoli" style="background: var(--parchment);">
       <div class="wrap split reverse">
         <div class="copy">
-          <p class="kicker">Makaram · January–February</p>
-          <h2>Thalappoli</h2>
-          <p>Four days from the evening of Makara Sankranti. This is the dignified festival of the year: elephants, <em>kathina vedi</em> (barrel crackers), and a procession of women in Kerala dress carrying a <em>thalam</em> — rice, a coconut-shell lamp, a lighted wick.</p>
-          <p>On the first day the Malayarayan community arrives with <em>irumudi kettu</em>, fasting, offering turmeric and pepper. The Kudumbi community comes with instruments and performs Savasini puja. On the third day the procession starts from Pathinettarayalam Kovilakam. The remaining days are organised by the Devaswom Board.</p>
-          <p>Sangam games are held at the temple during Thalappoli, in memory of the Sangam people associated with the Kannagi story.</p>
+          <p class="kicker" data-i18n="fest.kicker.makaram">Makaram · January–February</p>
+          <h2 data-i18n="fest.h2.thala">Thalappoli</h2>
+          <p data-i18n="fest.p.t1">Four days from the evening of Makara Sankranti. This is the dignified festival of the year: elephants, kathina vedi (barrel crackers), and a procession of women in Kerala dress carrying a thalam — rice, a coconut-shell lamp, a lighted wick.</p>
+          <p data-i18n="fest.p.t2">On the first day the Malayarayan community arrives with irumudi kettu, fasting, offering turmeric and pepper. The Kudumbi community comes with instruments and performs Savasini puja. On the third day the procession starts from Pathinettarayalam Kovilakam. The remaining days are organised by the Devaswom Board.</p>
+          <p data-i18n="fest.p.t3">Sangam games are held at the temple during Thalappoli, in memory of the Sangam people associated with the Kannagi story.</p>
         </div>
         <div class="frame">
           <img src="assets/images/official-thalappoli.png" alt="Flower towers carried toward the temple during Thalappoli">
@@ -82,31 +90,32 @@
 
     <section class="section">
       <div class="wrap">
-        <p class="kicker">The rest of the year</p>
-        <h2>Navaratri and Chandattam</h2>
+        <p class="kicker" data-i18n="fest.kicker.rest">The rest of the year</p>
+        <h2 data-i18n="fest.h2.nava">Navaratri and Chandattam</h2>
         <div class="cards">
           <article class="card">
             <div class="card-body">
-              <h3>Navaratri</h3>
-              <p>Through the nine nights the mother is worshipped in her gentler and royal forms — Maha Saraswati, Maha Lakshmi, and Durga who devotees also know as Kannagi. Tuesdays and Fridays already draw crowds; Navaratri fills the courtyard.</p>
+              <h3 data-i18n="fest.nava.h">Navaratri</h3>
+              <p data-i18n="fest.nava.p">Through the nine nights the mother is worshipped in her gentler and royal forms — Maha Saraswati, Maha Lakshmi, and Durga who devotees also know as Kannagi. Tuesdays and Fridays already draw crowds; Navaratri fills the courtyard.</p>
             </div>
           </article>
           <article class="card">
             <div class="card-body">
-              <h3>Chandattam</h3>
-              <p>The wooden image is not stone. Each year she is given Chandattam — a bath of adhesive made of many ingredients — so the jackfruit timber holds. This is both conservation and worship.</p>
+              <h3 data-i18n="fest.chand.h">Chandattam</h3>
+              <p data-i18n="fest.chand.p">The wooden image is not stone. Each year she is given Chandattam — a bath of adhesive made of many ingredients — so the jackfruit timber holds. This is both conservation and worship.</p>
             </div>
           </article>
           <article class="card">
             <div class="card-body">
-              <h3>Dates move</h3>
-              <p>Festival days follow the Malayalam calendar and the temple’s own custom. Confirm the year’s dates with the Devaswom office before you travel. Approximate windows: Thalappoli in Makaram, Bharani in Meenam.</p>
+              <h3 data-i18n="fest.dates.h">Dates move</h3>
+              <p data-i18n="fest.dates.p">Festival days follow the Malayalam calendar and the temple’s own custom. Confirm the year’s dates with the Devaswom office before you travel. Approximate windows: Thalappoli in Makaram, Bharani in Meenam.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
   </main>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

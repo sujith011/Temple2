@@ -5,9 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Kodungallur Sree Kurumba Bhagavathy Temple</title>
   <meta name="description" content="Official new website for Kodungallur Sree Kurumba Bhagavathy Temple — home of Kodungallur Amma, Bhadrakali, and the Bharani festival.">
+  <script>
+    (function () {
+      var lang = localStorage.getItem("temple-lang") === "ml" ? "ml" : "en";
+      document.documentElement.lang = lang;
+      document.documentElement.classList.toggle("lang-ml", lang === "ml");
+      document.documentElement.classList.add("i18n-wait");
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="home">
@@ -17,70 +25,70 @@
         <img src="assets/images/official-temple.png" alt="The terracotta-roofed Kerala shrine of Sree Kurumba Bhagavathy Temple, Kodungallur">
       </div>
       <div class="hero-content">
-        <p class="eyebrow">Kodungallur · Thrissur · Kerala</p>
+        <p class="eyebrow" data-i18n="home.eyebrow">Kodungallur · Thrissur · Kerala</p>
         <h1>കൊടുങ്ങല്ലൂർ അമ്മ</h1>
-        <p class="lede">Sree Kurumba Bhagavathy Temple — the Mother of Kodungallur, head of sixty-four Bhadrakali kavus, and one of the oldest living temples in India.</p>
+        <p class="lede" data-i18n="home.lede">Sree Kurumba Bhagavathy Temple — the Mother of Kodungallur, head of sixty-four Bhadrakali kavus, and one of the oldest living temples in India.</p>
         <div class="hero-actions">
-          <a class="btn btn-gold" href="darshan.html">Darshan timings</a>
-          <a class="btn btn-ghost" href="history.html">The stories of Amma</a>
+          <a class="btn btn-gold" href="darshan.html" data-i18n="home.cta.darshan">Darshan timings</a>
+          <a class="btn btn-ghost" href="history.html" data-i18n="home.cta.stories">The stories of Amma</a>
         </div>
       </div>
     </section>
 
     <section class="facts">
       <div class="facts-grid">
-        <div class="fact"><b>Bhadrakali</b><span>Sree Kurumba · Kodungallur Amma</span></div>
-        <div class="fact"><b>4:00 AM – 8:00 PM</b><span>Closed 12 noon to 4 PM</span></div>
-        <div class="fact"><b>Bharani &amp; Thalappoli</b><span>The two great festivals</span></div>
-        <div class="fact"><b>Kodungallur 680664</b><span>Cochin Devaswom Board</span></div>
+        <div class="fact"><b data-i18n="home.fact1">Bhadrakali</b><span data-i18n="home.fact1s">Sree Kurumba · Kodungallur Amma</span></div>
+        <div class="fact"><b data-i18n="home.fact2">4:00 AM – 8:00 PM</b><span data-i18n="home.fact2s">Closed 12 noon to 4 PM</span></div>
+        <div class="fact"><b data-i18n="home.fact3">Bharani &amp; Thalappoli</b><span data-i18n="home.fact3s">The two great festivals</span></div>
+        <div class="fact"><b data-i18n="home.fact4">Kodungallur 680664</b><span data-i18n="home.fact4s">Cochin Devaswom Board</span></div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap split">
         <div class="copy">
-          <p class="kicker">The temple</p>
-          <h2>The fierce mother who faces north</h2>
-          <p>In the sanctum stands Bhadrakali in her <em>ugra</em> form — about six to seven feet, carved from jackfruit wood, eight-armed, holding the head of the demon Darika, a sickle-sword, an anklet, a bell, and other weapons. Devotees know her as Sree Kurumba, the mother of this town.</p>
-          <p>The compound is Kerala architecture on about ten acres: a Shiva shrine without the usual Nandi, the seven mothers in a dark western chamber, a pond said to have been struck open by her sword, and a smallpox shrine still rubbed with turmeric.</p>
-          <p>Tradition holds that Adi Shankara seated the temple’s power in chakras behind the image, and that the priest worships those yantras facing east — not the wooden murti herself.</p>
-          <a class="btn btn-outline" href="history.html">Read the history</a>
+          <p class="kicker" data-i18n="home.kicker.temple">The temple</p>
+          <h2 data-i18n="home.h2.fierce">The fierce mother who faces north</h2>
+          <p data-i18n="home.p.sanctum">In the sanctum stands Bhadrakali in her ugra form — about six to seven feet, carved from jackfruit wood, eight-armed, holding the head of the demon Darika, a sickle-sword, an anklet, a bell, and other weapons. Devotees know her as Sree Kurumba, the mother of this town.</p>
+          <p data-i18n="home.p.compound">The compound is Kerala architecture on about ten acres: a Shiva shrine without the usual Nandi, the seven mothers in a dark western chamber, a pond said to have been struck open by her sword, and a smallpox shrine still rubbed with turmeric.</p>
+          <p data-i18n="home.p.chakras">Tradition holds that Adi Shankara seated the temple’s power in chakras behind the image, and that the priest worships those yantras facing east — not the wooden murti herself.</p>
+          <a class="btn btn-outline" href="history.html" data-i18n="home.cta.history">Read the history</a>
         </div>
         <div class="frame">
           <img src="assets/images/kt-temple.jpg" alt="Courtyard and gopuram-like Kerala roofs of the Kodungallur temple">
-          <p class="caption">The courtyard at the centre of Kodungallur town. Photography is not allowed inside the sanctum.</p>
+          <p class="caption" data-i18n="home.caption">The courtyard at the centre of Kodungallur town. Photography is not allowed inside the sanctum.</p>
         </div>
       </div>
     </section>
 
     <section class="section" style="background: var(--parchment);">
       <div class="wrap">
-        <p class="kicker">Sthalapurana</p>
-        <h2>Two stories the temple keeps</h2>
-        <p class="lede-body">The shrine holds two founding legends. The website does not choose between them. Both are living tradition.</p>
+        <p class="kicker" data-i18n="home.kicker.sthala">Sthalapurana</p>
+        <h2 data-i18n="home.h2.two">Two stories the temple keeps</h2>
+        <p class="lede-body" data-i18n="home.p.two">The shrine holds two founding legends. The website does not choose between them. Both are living tradition.</p>
         <div class="cards" style="margin-top: 2rem;">
           <article class="card">
             <img src="assets/images/evening-lamps.jpg" alt="Oil lamps at dusk in a Kerala temple courtyard">
             <div class="card-body">
-              <h3>Parasurama and Darika</h3>
-              <p>After Parasurama raised Kerala from the sea, the demon Darika tormented the land. From Shiva’s eyes Bhadrakali was born. She slew the demon, and Parasurama installed her here as Parashakti — the fiercest of four sisters he is said to have seated in the south.</p>
-              <a class="more" href="history.html#darika">The Darika legend →</a>
+              <h3 data-i18n="home.card.darika.h">Parasurama and Darika</h3>
+              <p data-i18n="home.card.darika.p">After Parasurama raised Kerala from the sea, the demon Darika tormented the land. From Shiva’s eyes Bhadrakali was born. She slew the demon, and Parasurama installed her here as Parashakti — the fiercest of four sisters he is said to have seated in the south.</p>
+              <a class="more" href="history.html#darika" data-i18n="home.card.darika.a">The Darika legend →</a>
             </div>
           </article>
           <article class="card">
             <img src="assets/images/kannagi.jpg" alt="Mural-style painting of Kannagi holding a broken golden anklet">
             <div class="card-body">
-              <h3>Kannagi and Senguttuvan</h3>
-              <p>The Tamil epic <em>Silappatikaram</em> brings Kannagi north after Madurai burns. Chera king Senguttuvan is believed to have built her a shrine at Kodungallur about 1,800 years ago. Devotees still offer an anklet to Amma.</p>
-              <a class="more" href="history.html#kannagi">The Kannagi legend →</a>
+              <h3 data-i18n="home.card.kannagi.h">Kannagi and Senguttuvan</h3>
+              <p data-i18n="home.card.kannagi.p">The Tamil epic Silappatikaram brings Kannagi north after Madurai burns. Chera king Senguttuvan is believed to have built her a shrine at Kodungallur about 1,800 years ago. Devotees still offer an anklet to Amma.</p>
+              <a class="more" href="history.html#kannagi" data-i18n="home.card.kannagi.a">The Kannagi legend →</a>
             </div>
           </article>
           <article class="card">
             <img src="assets/images/muziris-banner.jpg" alt="Temple lamp tower and yellow-pillared halls at Kodungallur">
             <div class="card-body">
-              <h3>Muziris, then Kodungallur</h3>
-              <p>The town around the temple is ancient Muziris — a Chera port known to Greeks and Romans, later Mahodayapuram. The temple stands in that old capital, about 1.5 km from today’s bus stand.</p>
-              <a class="more" href="visit.html">Plan a visit →</a>
+              <h3 data-i18n="home.card.muziris.h">Muziris, then Kodungallur</h3>
+              <p data-i18n="home.card.muziris.p">The town around the temple is ancient Muziris — a Chera port known to Greeks and Romans, later Mahodayapuram. The temple stands in that old capital, about 1.5 km from today’s bus stand.</p>
+              <a class="more" href="visit.html" data-i18n="home.card.muziris.a">Plan a visit →</a>
             </div>
           </article>
         </div>
@@ -89,31 +97,31 @@
 
     <section class="section">
       <div class="wrap">
-        <p class="kicker">Utsavam</p>
-        <h2>Festivals that still shake the town</h2>
+        <p class="kicker" data-i18n="home.kicker.utsavam">Utsavam</p>
+        <h2 data-i18n="home.h2.fest">Festivals that still shake the town</h2>
         <div class="cards">
           <article class="card">
             <img src="assets/images/official-bharani.png" alt="Oracles in red during the Kodungallur Bharani festival">
             <div class="card-body">
-              <h3>Bharani</h3>
-              <p>From the Bharani of Kumbham to seven days after the Bharani of Meenam. Oracles in red, Kavu Theendal, turmeric on the roof, and a week of purification. Animal sacrifice is banned; the old rite is now symbolic.</p>
-              <a class="more" href="festivals.html#bharani">Festival calendar →</a>
+              <h3 data-i18n="home.card.bharani.h">Bharani</h3>
+              <p data-i18n="home.card.bharani.p">From the Bharani of Kumbham to seven days after the Bharani of Meenam. Oracles in red, Kavu Theendal, turmeric on the roof, and a week of purification. Animal sacrifice is banned; the old rite is now symbolic.</p>
+              <a class="more" href="festivals.html#bharani" data-i18n="home.card.bharani.a">Festival calendar →</a>
             </div>
           </article>
           <article class="card">
             <img src="assets/images/official-thalappoli.png" alt="Flower-decked offerings carried during Thalappoli">
             <div class="card-body">
-              <h3>Thalappoli</h3>
-              <p>Four days from Makara Sankranti. Elephants, barrel crackers, and women carrying lamps of rice and coconut. Malayarayan, Kudumbi, and the Kovilakam each keep a day.</p>
-              <a class="more" href="festivals.html#thalappoli">How Thalappoli unfolds →</a>
+              <h3 data-i18n="home.card.thala.h">Thalappoli</h3>
+              <p data-i18n="home.card.thala.p">Four days from Makara Sankranti. Elephants, barrel crackers, and women carrying lamps of rice and coconut. Malayarayan, Kudumbi, and the Kovilakam each keep a day.</p>
+              <a class="more" href="festivals.html#thalappoli" data-i18n="home.card.thala.a">How Thalappoli unfolds →</a>
             </div>
           </article>
           <article class="card">
             <img src="assets/images/official-offerings.png" alt="Temple offerings, lamps and festival drums">
             <div class="card-body">
-              <h3>Navaratri &amp; Chandattam</h3>
-              <p>The wooden image is protected each year by Chandattam, a bath of sacred adhesive. Navaratri brings the mother as Saraswati, Lakshmi, and Durga in turn.</p>
-              <a class="more" href="festivals.html">All observances →</a>
+              <h3 data-i18n="home.card.nava.h">Navaratri &amp; Chandattam</h3>
+              <p data-i18n="home.card.nava.p">The wooden image is protected each year by Chandattam, a bath of sacred adhesive. Navaratri brings the mother as Saraswati, Lakshmi, and Durga in turn.</p>
+              <a class="more" href="festivals.html" data-i18n="home.card.nava.a">All observances →</a>
             </div>
           </article>
         </div>
@@ -123,27 +131,28 @@
     <section class="section band">
       <div class="wrap split">
         <div>
-          <p class="kicker" style="color: var(--gold-soft);">Darshan</p>
-          <h2>Open before dawn</h2>
-          <p>The nada opens at 4:00 AM with Malar Nivedyam. Ucha pooja is at 11:30. The temple rests from noon to 4:00 PM, then Deeparadhana at 6:15 and Athazha pooja at 7:30. Guruthy follows the night closing.</p>
-          <a class="btn btn-gold" href="darshan.html">Full timetable &amp; vazhipadu</a>
+          <p class="kicker" style="color: var(--gold-soft);" data-i18n="home.kicker.darshan">Darshan</p>
+          <h2 data-i18n="home.h2.open">Open before dawn</h2>
+          <p data-i18n="home.p.times">The nada opens at 4:00 AM with Malar Nivedyam. Ucha pooja is at 11:30. The temple rests from noon to 4:00 PM, then Deeparadhana at 6:15 and Athazha pooja at 7:30. Guruthy follows the night closing.</p>
+          <a class="btn btn-gold" href="darshan.html" data-i18n="home.cta.full">Full timetable &amp; vazhipadu</a>
         </div>
         <div>
-          <p>Tuesdays, Fridays, and the Sabarimala season are the busiest days. Traditional dress is expected. Book Nakshatra Pushpanjali or Guruthy a few days ahead.</p>
-          <a class="btn btn-ghost" href="darshan.html#pooja">Request a pooja</a>
+          <p data-i18n="home.p.busy">Tuesdays, Fridays, and the Sabarimala season are the busiest days. Traditional dress is expected. Book Nakshatra Pushpanjali or Guruthy a few days ahead.</p>
+          <a class="btn btn-ghost" href="darshan.html#pooja" data-i18n="home.cta.pooja">Request a pooja</a>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap center">
-        <p class="kicker">Seva</p>
-        <h2>Annadanam, charity, renovation</h2>
-        <p class="lede-body" style="margin: 0 auto 1.5rem;">Donations keep the daily feeding, the wooden image, and the charitable work of the temple. You may give online here or through the Cochin Devaswom Board.</p>
-        <a class="btn btn-blood" href="donate.html">Donate to the temple</a>
+        <p class="kicker" data-i18n="home.kicker.seva">Seva</p>
+        <h2 data-i18n="home.h2.seva">Annadanam, charity, renovation</h2>
+        <p class="lede-body" style="margin: 0 auto 1.5rem;" data-i18n="home.p.seva">Donations keep the daily feeding, the wooden image, and the charitable work of the temple. You may give online here or through the Cochin Devaswom Board.</p>
+        <a class="btn btn-blood" href="donate.html" data-i18n="home.cta.donate">Donate to the temple</a>
       </div>
     </section>
   </main>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

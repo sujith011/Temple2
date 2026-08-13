@@ -5,9 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Visit Kodungallur — Sree Kurumba Bhagavathy Temple</title>
   <meta name="description" content="How to reach Kodungallur Sree Kurumba Bhagavathy Temple, contact details, map, and nearby Muziris sites.">
+  <script>
+    (function () {
+      var lang = localStorage.getItem("temple-lang") === "ml" ? "ml" : "en";
+      document.documentElement.lang = lang;
+      document.documentElement.classList.toggle("lang-ml", lang === "ml");
+      document.documentElement.classList.add("i18n-wait");
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="visit">
@@ -15,51 +23,51 @@
     <section class="page-banner">
       <img src="assets/images/muziris-banner.jpg" alt="Lamp tower in the Kodungallur temple compound">
       <div class="wrap">
-        <p class="eyebrow">Kodungallur · 680664</p>
-        <h1>Visit the temple</h1>
+        <p class="eyebrow" data-i18n="vis.eyebrow">Kodungallur · 680664</p>
+        <h1 data-i18n="vis.h1">Visit the temple</h1>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap split">
         <div>
-          <p class="kicker">How to reach</p>
-          <h2>In the middle of the old port town</h2>
-          <p>The temple sits at the centre of Kodungallur, about 1.5 km southeast of the bus stand and roughly 650 m from the town centre. The town is ancient Muziris — later Mahodayapuram and Cranganore — on the Kerala coast between Kochi and Thrissur.</p>
+          <p class="kicker" data-i18n="vis.kicker.reach">How to reach</p>
+          <h2 data-i18n="vis.h2.middle">In the middle of the old port town</h2>
+          <p data-i18n="vis.p.intro">The temple sits at the centre of Kodungallur, about 1.5 km southeast of the bus stand and roughly 650 m from the town centre. The town is ancient Muziris — later Mahodayapuram and Cranganore — on the Kerala coast between Kochi and Thrissur.</p>
           <ul class="contact-list">
-            <li><strong>Address</strong>Thekkenada Road, Pettumma, Kodungallur, Thrissur, Kerala 680664</li>
-            <li><strong>Phone</strong><a href="tel:+914802803061">0480 280 3061</a> · <a href="tel:+919188958032">+91 91889 58032</a></li>
-            <li><strong>Email</strong><a href="mailto:sreekurumba2021@gmail.com">sreekurumba2021@gmail.com</a></li>
-            <li><strong>Devaswom</strong>Cochin Devaswom Board · <a href="mailto:admin@cochindevaswomboard.org">admin@cochindevaswomboard.org</a></li>
+            <li><strong data-i18n="vis.addr.l">Address</strong><span data-i18n="vis.addr.v">Thekkenada Road, Pettumma, Kodungallur, Thrissur, Kerala 680664</span></li>
+            <li><strong data-i18n="vis.phone.l">Phone</strong><a href="tel:+914802803061">0480 280 3061</a> · <a href="tel:+919188958032">+91 91889 58032</a></li>
+            <li><strong data-i18n="vis.email.l">Email</strong><a href="mailto:sreekurumba2021@gmail.com">sreekurumba2021@gmail.com</a></li>
+            <li><strong data-i18n="vis.dev.l">Devaswom</strong><span data-i18n="vis.dev.v">Cochin Devaswom Board</span> · <a href="mailto:admin@cochindevaswomboard.org">admin@cochindevaswomboard.org</a></li>
           </ul>
         </div>
         <div>
-          <iframe class="map-frame" title="Map of Kodungallur Sree Kurumba Bhagavathy Temple" src="https://maps.google.com/maps?q=10.226833,76.198425&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe class="map-frame" data-i18n-title="vis.map" title="Map of Kodungallur Sree Kurumba Bhagavathy Temple" src="https://maps.google.com/maps?q=10.226833,76.198425&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
 
     <section class="section" style="background: var(--parchment);">
       <div class="wrap">
-        <p class="kicker">Travel</p>
-        <h2>Air, rail, road</h2>
+        <p class="kicker" data-i18n="vis.kicker.travel">Travel</p>
+        <h2 data-i18n="vis.h2.travel">Air, rail, road</h2>
         <div class="cards">
           <article class="card">
             <div class="card-body">
-              <h3>Air</h3>
-              <p>Cochin International Airport is about 31 km. Taxis and buses run to Kodungallur through North Paravur / NH routes.</p>
+              <h3 data-i18n="vis.air.h">Air</h3>
+              <p data-i18n="vis.air.p">Cochin International Airport is about 31 km. Taxis and buses run to Kodungallur through North Paravur / NH routes.</p>
             </div>
           </article>
           <article class="card">
             <div class="card-body">
-              <h3>Rail</h3>
-              <p>Thrissur station is about 37 km (Kerala Tourism). Irinjalakuda is a nearer halt, roughly 16–20 km. From either, take a bus or taxi to Kodungallur town.</p>
+              <h3 data-i18n="vis.rail.h">Rail</h3>
+              <p data-i18n="vis.rail.p">Thrissur station is about 37 km (Kerala Tourism). Irinjalakuda is a nearer halt, roughly 16–20 km. From either, take a bus or taxi to Kodungallur town.</p>
             </div>
           </article>
           <article class="card">
             <div class="card-body">
-              <h3>Bus &amp; road</h3>
-              <p>Kodungallur private bus stand is about 700 m from the temple. Thrissur city is about 40 km. The temple is walkable from the municipal centre.</p>
+              <h3 data-i18n="vis.bus.h">Bus &amp; road</h3>
+              <p data-i18n="vis.bus.p">Kodungallur private bus stand is about 700 m from the temple. Thrissur city is about 40 km. The temple is walkable from the municipal centre.</p>
             </div>
           </article>
         </div>
@@ -68,25 +76,25 @@
 
     <section class="section">
       <div class="wrap">
-        <p class="kicker">Around Amma</p>
-        <h2>Muziris and the old capital</h2>
-        <p class="lede-body">Kodungallur was a Chera port known to Greeks and Romans as Muziris, to Tamil epics as Muciri, later as Mahodayapuram and Thiruvanchikulam. The Periyar flood of 1341 wrecked the harbour. The town still holds the first layers of Kerala’s Christian, Muslim and Jewish memory.</p>
+        <p class="kicker" data-i18n="vis.kicker.around">Around Amma</p>
+        <h2 data-i18n="vis.h2.muziris">Muziris and the old capital</h2>
+        <p class="lede-body" data-i18n="vis.p.muziris">Kodungallur was a Chera port known to Greeks and Romans as Muziris, to Tamil epics as Muciri, later as Mahodayapuram and Thiruvanchikulam. The Periyar flood of 1341 wrecked the harbour. The town still holds the first layers of Kerala’s Christian, Muslim and Jewish memory.</p>
         <div class="compound mt-2">
           <article>
-            <h3>Thiruvanchikulam Mahadeva</h3>
-            <p>The old Shiva house of the Chera capital, in the same Devaswom group. Folk memory links a Kovalan shrine here to the Kannagi story.</p>
+            <h3 data-i18n="vis.tv.h">Thiruvanchikulam Mahadeva</h3>
+            <p data-i18n="vis.tv.p">The old Shiva house of the Chera capital, in the same Devaswom group. Folk memory links a Kovalan shrine here to the Kannagi story.</p>
           </article>
           <article>
-            <h3>Cheraman Juma Masjid</h3>
-            <p>Often called the first mosque in India, a short ride from the temple — part of why Kodungallur is a shared sacred town, not only a Hindu one.</p>
+            <h3 data-i18n="vis.ch.h">Cheraman Juma Masjid</h3>
+            <p data-i18n="vis.ch.p">Often called the first mosque in India, a short ride from the temple — part of why Kodungallur is a shared sacred town, not only a Hindu one.</p>
           </article>
           <article>
-            <h3>Azhikode / Munakkal</h3>
-            <p>The beach and estuary where the Periyar meets the sea. Traditional landing of St. Thomas is remembered at nearby Kodungallur / Azhikode.</p>
+            <h3 data-i18n="vis.az.h">Azhikode / Munakkal</h3>
+            <p data-i18n="vis.az.p">The beach and estuary where the Periyar meets the sea. Traditional landing of St. Thomas is remembered at nearby Kodungallur / Azhikode.</p>
           </article>
           <article>
-            <h3>Muziris heritage</h3>
-            <p>Kerala Tourism’s Muziris trail — Kottappuram fort, synagogues, and excavated port sites — sits around this temple. A day is not too much.</p>
+            <h3 data-i18n="vis.mz.h">Muziris heritage</h3>
+            <p data-i18n="vis.mz.p">Kerala Tourism’s Muziris trail — Kottappuram fort, synagogues, and excavated port sites — sits around this temple. A day is not too much.</p>
           </article>
         </div>
       </div>
@@ -95,22 +103,23 @@
     <section class="section" style="background: #fff;">
       <div class="wrap split">
         <div>
-          <p class="kicker">Write to the office</p>
-          <h2>A message for the temple</h2>
-          <p>Use this for visit questions, group darshan, or press. For pooja booking use the <a href="darshan.html#pooja">darshan form</a>. For money, use <a href="donate.html">donate</a>.</p>
+          <p class="kicker" data-i18n="vis.kicker.write">Write to the office</p>
+          <h2 data-i18n="vis.h2.msg">A message for the temple</h2>
+          <p data-i18n-html="vis.p.msg">Use this for visit questions, group darshan, or press. For pooja booking use the <a href="darshan.html#pooja">darshan form</a>. For money, use <a href="donate.html">donate</a>.</p>
         </div>
         <div class="form-card">
-          <form data-confirm="Thank you. Your message has been recorded on this site. Please also call 0480 280 3061 if the matter is urgent.">
-            <label>Name <input name="name" required></label>
-            <label>Email or phone <input name="contact" required></label>
-            <label>Message <textarea name="message" required></textarea></label>
-            <button class="btn btn-blood" type="submit">Send message</button>
+          <form data-i18n-confirm="vis.confirm" data-confirm="Thank you. Your message has been recorded on this site. Please also call 0480 280 3061 if the matter is urgent.">
+            <label><span data-i18n="form.name">Name</span> <input name="name" required></label>
+            <label><span data-i18n="form.contact">Email or phone</span> <input name="contact" required></label>
+            <label><span data-i18n="form.message">Message</span> <textarea name="message" required></textarea></label>
+            <button class="btn btn-blood" type="submit" data-i18n="form.send">Send message</button>
             <p class="form-success" role="status"></p>
           </form>
         </div>
       </div>
     </section>
   </main>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

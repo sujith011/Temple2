@@ -5,9 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>History &amp; legends — Kodungallur Sree Kurumba Bhagavathy Temple</title>
   <meta name="description" content="Parasurama and Darika, Kannagi and Cheran Senguttuvan, Adi Shankara’s chakras, and the living compound of Kodungallur Amma.">
+  <script>
+    (function () {
+      var lang = localStorage.getItem("temple-lang") === "ml" ? "ml" : "en";
+      document.documentElement.lang = lang;
+      document.documentElement.classList.toggle("lang-ml", lang === "ml");
+      document.documentElement.classList.add("i18n-wait");
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="history">
@@ -15,17 +23,17 @@
     <section class="page-banner">
       <img src="assets/images/kt-temple.jpg" alt="Kodungallur temple courtyard">
       <div class="wrap">
-        <p class="eyebrow">Itihasa · Sthalapurana</p>
-        <h1>History &amp; legends</h1>
+        <p class="eyebrow" data-i18n="hist.eyebrow">Itihasa · Sthalapurana</p>
+        <h1 data-i18n="hist.h1">History &amp; legends</h1>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <p class="kicker">How to read these pages</p>
-        <h2>A shrine older than any single story</h2>
-        <p class="lede-body">Sree Kurumba Bhagavati Temple stands in Kodungallur, Thrissur district. It is dedicated to Bhadrakali — also Maha Kali, Durga, Adi Parashakti — known here as Sree Kurumba and Kodungallur Amma. It is counted as the head of 64 Bhadrakali kavus in Malabar and as one of the 13 Shakteya temples of Kerala.</p>
-        <p class="note">The two founding legends below are <strong>living tradition</strong>, not a court record. Kerala Tourism notes that historians disagree with a simple identification of the murti as Kannagi alone. Both stories are kept because devotees keep them.</p>
+        <p class="kicker" data-i18n="hist.kicker.read">How to read these pages</p>
+        <h2 data-i18n="hist.h2.older">A shrine older than any single story</h2>
+        <p class="lede-body" data-i18n="hist.p.intro">Sree Kurumba Bhagavati Temple stands in Kodungallur, Thrissur district. It is dedicated to Bhadrakali — also Maha Kali, Durga, Adi Parashakti — known here as Sree Kurumba and Kodungallur Amma. It is counted as the head of 64 Bhadrakali kavus in Malabar and as one of the 13 Shakteya temples of Kerala.</p>
+        <p class="note" data-i18n-html="hist.note.living">The two founding legends below are <strong>living tradition</strong>, not a court record. Kerala Tourism notes that historians disagree with a simple identification of the murti as Kannagi alone. Both stories are kept because devotees keep them.</p>
       </div>
     </section>
 
@@ -33,24 +41,24 @@
       <div class="wrap story">
         <img src="assets/images/evening-lamps.jpg" alt="Dusk lamps in a Kerala temple courtyard">
         <div>
-          <p class="kicker">First telling</p>
-          <h2>Parasurama, Darika, and the fiercest sister</h2>
-          <p>After Parasurama created Kerala, the demon Darika (Darikan) began to torment him. Parasurama prayed to Shiva. Bhadrakali emerged from Shiva’s three eyes and slew the demon. Parasurama is believed to have built this temple and installed Parashakti herself.</p>
-          <p>A related tradition says Parasurama seated four goddesses in the south: Balambika at Kanyakumari, <strong>Lokambika at Kodungallur</strong>, Hemambika at Palakkad, and Mookambika at Kollur. Of these, Kodungallur is the fiercest.</p>
-          <p class="source">Sources: Wikipedia (Janam TV); Kerala Tourism Bharani festival note.</p>
+          <p class="kicker" data-i18n="hist.kicker.first">First telling</p>
+          <h2 data-i18n="hist.h2.darika">Parasurama, Darika, and the fiercest sister</h2>
+          <p data-i18n="hist.p.darika1">After Parasurama created Kerala, the demon Darika (Darikan) began to torment him. Parasurama prayed to Shiva. Bhadrakali emerged from Shiva’s three eyes and slew the demon. Parasurama is believed to have built this temple and installed Parashakti herself.</p>
+          <p data-i18n-html="hist.p.darika2">A related tradition says Parasurama seated four goddesses in the south: Balambika at Kanyakumari, <strong>Lokambika at Kodungallur</strong>, Hemambika at Palakkad, and Mookambika at Kollur. Of these, Kodungallur is the fiercest.</p>
+          <p class="source" data-i18n="hist.src.darika">Sources: Wikipedia (Janam TV); Kerala Tourism Bharani festival note.</p>
         </div>
       </div>
 
       <div class="wrap story" id="kannagi">
         <img src="assets/images/kannagi.jpg" alt="Illustration of Kannagi with the broken anklet before a burning city">
         <div>
-          <p class="kicker">Second telling</p>
-          <h2>Kannagi comes north</h2>
-          <p>Ilango Adigal’s Tamil epic <em>Silappatikaram</em> tells of Kannagi, whose husband Kovalan was executed in Madurai after a goldsmith framed him for stealing the queen’s anklet. Kannagi proved his innocence with the other anklet, tore off her left breast, and burned the city.</p>
-          <p>She is believed to have come to the Chera country. King <strong>Senguttuvan (Cheran Chenguttuvan)</strong>, ruling from Kodungallur, moved her a furlong south of the present site and built a shrine. Consecration is described as Shakta — a thousand pots of toddy and a thousand chickens. Because of her power she was later installed at the present temple with Shiva facing south, Parashakti facing north, and Bhadrakali facing west.</p>
-          <p>Tradition dates this to about 1,800 years ago. Kannagi is said to seek union with Bhadrakali in the sanctum. Before Kodungallur she gave darshan at Attukal, where women pacified her with pongala.</p>
-          <p class="note">Devotees still offer a <em>kuduka</em> (anklet) and a sword to Amma. There is a separate Kannagi shrine in the compound, and a Kovalan shrine at Thiruvanchikulam.</p>
-          <p class="source">Sources: Wikipedia; Kerala Tourism Muziris; Vanamali Ashram.</p>
+          <p class="kicker" data-i18n="hist.kicker.second">Second telling</p>
+          <h2 data-i18n="hist.h2.kannagi">Kannagi comes north</h2>
+          <p data-i18n-html="hist.p.kannagi1">Ilango Adigal’s Tamil epic <em>Silappatikaram</em> tells of Kannagi, whose husband Kovalan was executed in Madurai after a goldsmith framed him for stealing the queen’s anklet. Kannagi proved his innocence with the other anklet, tore off her left breast, and burned the city.</p>
+          <p data-i18n-html="hist.p.kannagi2">She is believed to have come to the Chera country. King <strong>Senguttuvan (Cheran Chenguttuvan)</strong>, ruling from Kodungallur, moved her a furlong south of the present site and built a shrine. Consecration is described as Shakta — a thousand pots of toddy and a thousand chickens. Because of her power she was later installed at the present temple with Shiva facing south, Parashakti facing north, and Bhadrakali facing west.</p>
+          <p data-i18n="hist.p.kannagi3">Tradition dates this to about 1,800 years ago. Kannagi is said to seek union with Bhadrakali in the sanctum. Before Kodungallur she gave darshan at Attukal, where women pacified her with pongala.</p>
+          <p class="note" data-i18n-html="hist.note.kuduka">Devotees still offer a <em>kuduka</em> (anklet) and a sword to Amma. There is a separate Kannagi shrine in the compound, and a Kovalan shrine at Thiruvanchikulam.</p>
+          <p class="source" data-i18n="hist.src.kannagi">Sources: Wikipedia; Kerala Tourism Muziris; Vanamali Ashram.</p>
         </div>
       </div>
     </section>
@@ -58,10 +66,10 @@
     <section class="section" style="background: var(--parchment);">
       <div class="wrap split">
         <div>
-          <p class="kicker">The power of the house</p>
-          <h2>Adi Shankara’s chakras</h2>
-          <p>Adi Shankaracharya is believed to have consecrated the chakras that hold the temple’s power — accounts speak of three Sri Chakras or five chakras. The priest sits facing east and worships the yantras, which are covered with a gold lid. A door opposite them opens only on special days, or when the Raja of Kodungallur comes at dawn.</p>
-          <p>East of the sanctum is a granite chamber that has never been opened. Folk memory says it holds gifts of ancient kings, and that a passage once ran toward Thiruvanchikulam.</p>
+          <p class="kicker" data-i18n="hist.kicker.power">The power of the house</p>
+          <h2 data-i18n="hist.h2.chakras">Adi Shankara’s chakras</h2>
+          <p data-i18n="hist.p.chakras1">Adi Shankaracharya is believed to have consecrated the chakras that hold the temple’s power — accounts speak of three Sri Chakras or five chakras. The priest sits facing east and worships the yantras, which are covered with a gold lid. A door opposite them opens only on special days, or when the Raja of Kodungallur comes at dawn.</p>
+          <p data-i18n="hist.p.chakras2">East of the sanctum is a granite chamber that has never been opened. Folk memory says it holds gifts of ancient kings, and that a passage once ran toward Thiruvanchikulam.</p>
         </div>
         <div class="frame">
           <img src="assets/images/official-temple.png" alt="Main Kerala roofs of Sree Kurumba temple">
@@ -71,40 +79,40 @@
 
     <section class="section">
       <div class="wrap">
-        <p class="kicker">The compound</p>
-        <h2>Who else lives in the kavu</h2>
+        <p class="kicker" data-i18n="hist.kicker.compound">The compound</p>
+        <h2 data-i18n="hist.h2.kavu">Who else lives in the kavu</h2>
         <div class="compound mt-2">
           <article>
-            <h3>Bhadrakali</h3>
-            <p>North-facing, jackfruit wood, eight arms. Yearly Chandattam protects the timber. Gold chains cover the body; the crown is compared to a Kathakali headpiece.</p>
+            <h3 data-i18n="hist.bh.h">Bhadrakali</h3>
+            <p data-i18n="hist.bh.p">North-facing, jackfruit wood, eight arms. Yearly Chandattam protects the timber. Gold chains cover the body; the crown is compared to a Kathakali headpiece.</p>
           </article>
           <article>
-            <h3>Shiva</h3>
-            <p>Beside the sanctum, without the usual Nandi. Puja is done first to Shiva, then to the goddess. Tradition says she herself ordered this.</p>
+            <h3 data-i18n="hist.sh.h">Shiva</h3>
+            <p data-i18n="hist.sh.p">Beside the sanctum, without the usual Nandi. Puja is done first to Shiva, then to the goddess. Tradition says she herself ordered this.</p>
           </article>
           <article>
-            <h3>Sapthamatrikas</h3>
-            <p>Western inner chamber: Brahmi, Maheswari, Vaishnavi, Varahi, Narasimhi, Kaumari, Aindri, Chamunda — facing north, lit by a single lamp.</p>
+            <h3 data-i18n="hist.sm.h">Sapthamatrikas</h3>
+            <p data-i18n="hist.sm.p">Western inner chamber: Brahmi, Maheswari, Vaishnavi, Varahi, Narasimhi, Kaumari, Aindri, Chamunda — facing north, lit by a single lamp.</p>
           </article>
           <article>
-            <h3>Ganapati &amp; Veerabhadra</h3>
-            <p>Ganapati inside the main temple, facing east. Veerabhadra in a north-east chamber, facing west.</p>
+            <h3 data-i18n="hist.gv.h">Ganapati &amp; Veerabhadra</h3>
+            <p data-i18n="hist.gv.p">Ganapati inside the main temple, facing east. Veerabhadra in a north-east chamber, facing west.</p>
           </article>
           <article>
-            <h3>Vysoori / Vasuri mala</h3>
-            <p>Outer shrine for smallpox and contagious disease. Turmeric is rubbed on the walls. Rice bran is offered. Women still sell turmeric packets in the courtyard.</p>
+            <h3 data-i18n="hist.vy.h">Vysoori / Vasuri mala</h3>
+            <p data-i18n="hist.vy.p">Outer shrine for smallpox and contagious disease. Turmeric is rubbed on the walls. Rice bran is offered. Women still sell turmeric packets in the courtyard.</p>
           </article>
           <article>
-            <h3>Kshetrapala &amp; the pond</h3>
-            <p>An unusually large gate-guardian on the east. About fifty metres away, the pushkarini — said to have been opened when the goddess struck the earth with her sword.</p>
+            <h3 data-i18n="hist.ks.h">Kshetrapala &amp; the pond</h3>
+            <p data-i18n="hist.ks.p">An unusually large gate-guardian on the east. About fifty metres away, the pushkarini — said to have been opened when the goddess struck the earth with her sword.</p>
           </article>
           <article>
-            <h3>64 Thiyya tharas</h3>
-            <p>Sixty-four tharas of Thiyyar families from Malabar — mainly Kannur and Kozhikode — stand in the temple.</p>
+            <h3 data-i18n="hist.th.h">64 Thiyya tharas</h3>
+            <p data-i18n="hist.th.p">Sixty-four tharas of Thiyyar families from Malabar — mainly Kannur and Kozhikode — stand in the temple.</p>
           </article>
           <article>
-            <h3>Priests</h3>
-            <p>Daily pujas are performed by Konkan priests from the Mangalore tradition. Namboodiri priests enter for the purification after Bharani.</p>
+            <h3 data-i18n="hist.pr.h">Priests</h3>
+            <p data-i18n="hist.pr.p">Daily pujas are performed by Konkan priests from the Mangalore tradition. Namboodiri priests enter for the purification after Bharani.</p>
           </article>
         </div>
       </div>
@@ -112,15 +120,16 @@
 
     <section class="section" style="background: #fff;">
       <div class="wrap">
-        <p class="kicker">Administration</p>
-        <h2>From the Kovilakam to the Devaswom</h2>
-        <p>The temple was managed by the Kodungallur Kovilakam, the royal family. The local body <em>Onnu Kure Ayiram Yogam</em> (O.K.A.Y.) once met on the first of every month in front of the temple. During the Mysorean invasions the shrine was destroyed; the power of the goddess was invoked into a sword and kept in a nearby illam, then restored when Tipu retreated.</p>
-        <p>The Cochin Devaswom Board took over in 1950. Kodungallur is remembered as among the first Kerala temples to allow entry of all castes, before the Temple Entry Proclamation.</p>
-        <p>Rooster sacrifice has been banned since 1978 under the Kerala Animals and Birds Sacrifices Prohibition Act. The old <em>Kozhikkallu moodal</em> now covers the stones with red silk.</p>
-        <p class="source">Sources: Wikipedia; Kerala Tourism festival PDF; <em>The Hindu</em>, 2 April 2022; Vanamali Ashram.</p>
+        <p class="kicker" data-i18n="hist.kicker.admin">Administration</p>
+        <h2 data-i18n="hist.h2.admin">From the Kovilakam to the Devaswom</h2>
+        <p data-i18n-html="hist.p.admin1">The temple was managed by the Kodungallur Kovilakam, the royal family. The local body <em>Onnu Kure Ayiram Yogam</em> (O.K.A.Y.) once met on the first of every month in front of the temple. During the Mysorean invasions the shrine was destroyed; the power of the goddess was invoked into a sword and kept in a nearby illam, then restored when Tipu retreated.</p>
+        <p data-i18n="hist.p.admin2">The Cochin Devaswom Board took over in 1950. Kodungallur is remembered as among the first Kerala temples to allow entry of all castes, before the Temple Entry Proclamation.</p>
+        <p data-i18n-html="hist.p.admin3">Rooster sacrifice has been banned since 1978 under the Kerala Animals and Birds Sacrifices Prohibition Act. The old <em>Kozhikkallu moodal</em> now covers the stones with red silk.</p>
+        <p class="source" data-i18n="hist.src.admin">Sources: Wikipedia; Kerala Tourism festival PDF; The Hindu, 2 April 2022; Vanamali Ashram.</p>
       </div>
     </section>
   </main>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

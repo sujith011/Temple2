@@ -5,9 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Donate — Kodungallur Sree Kurumba Bhagavathy Temple</title>
   <meta name="description" content="Support annadanam, charity and temple renovation at Kodungallur Sree Kurumba Bhagavathy Temple.">
+  <script>
+    (function () {
+      var lang = localStorage.getItem("temple-lang") === "ml" ? "ml" : "en";
+      document.documentElement.lang = lang;
+      document.documentElement.classList.toggle("lang-ml", lang === "ml");
+      document.documentElement.classList.add("i18n-wait");
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Noto+Sans+Malayalam:wght@400;600;700&family=Noto+Serif+Malayalam:wght@500;700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-page="donate">
@@ -15,28 +23,28 @@
     <section class="page-banner">
       <img src="assets/images/official-offerings.png" alt="Offerings of fruit, lamps and festival drums">
       <div class="wrap">
-        <p class="eyebrow">Seva</p>
-        <h1>Donate</h1>
+        <p class="eyebrow" data-i18n="don.eyebrow">Seva</p>
+        <h1 data-i18n="don.h1">Donate</h1>
       </div>
     </section>
 
     <section class="section">
       <div class="wrap">
-        <p class="kicker">How gifts are used</p>
-        <h2>The temple lives on what devotees bring</h2>
-        <p class="lede-body">The present official site names three causes. This page keeps them, so a gift can be aimed. Payment will be connected to the Cochin Devaswom Board account; until then your pledge is recorded here and should be confirmed by phone or the existing donation page.</p>
+        <p class="kicker" data-i18n="don.kicker.how">How gifts are used</p>
+        <h2 data-i18n="don.h2.lives">The temple lives on what devotees bring</h2>
+        <p class="lede-body" data-i18n="don.p.intro">The present official site names three causes. This page keeps them, so a gift can be aimed. Payment will be connected to the Cochin Devaswom Board account; until then your pledge is recorded here and should be confirmed by phone or the existing donation page.</p>
         <div class="donate-grid mt-2">
           <article class="donate-card">
-            <h3>Annadanam</h3>
-            <p>Daily feeding. A gift here becomes a meal in the name of Kodungallur Amma.</p>
+            <h3 data-i18n="don.ann.h">Annadanam</h3>
+            <p data-i18n="don.ann.p">Daily feeding. A gift here becomes a meal in the name of Kodungallur Amma.</p>
           </article>
           <article class="donate-card">
-            <h3>Charity fund</h3>
-            <p>Help that leaves the courtyard — support for families and temple charitable work.</p>
+            <h3 data-i18n="don.cha.h">Charity fund</h3>
+            <p data-i18n="don.cha.p">Help that leaves the courtyard — support for families and temple charitable work.</p>
           </article>
           <article class="donate-card">
-            <h3>Temple renovation</h3>
-            <p>Timber, tile, and the yearly care of a wooden image that is more than a thousand years of touch.</p>
+            <h3 data-i18n="don.ren.h">Temple renovation</h3>
+            <p data-i18n="don.ren.p">Timber, tile, and the yearly care of a wooden image that is more than a thousand years of touch.</p>
           </article>
         </div>
       </div>
@@ -45,27 +53,27 @@
     <section class="section" style="background: var(--parchment);">
       <div class="wrap split">
         <div>
-          <p class="kicker">Offer a gift</p>
-          <h2>Record a donation</h2>
-          <p>Choose a cause and an amount. You will receive on-screen confirmation. Please also complete payment on the official donation page or by speaking to the temple office, until the new gateway is live.</p>
-          <p><a href="https://kodungallursreekurumbabhagavathytemple.org/donations/donationdetails" rel="noopener">Official donation page →</a></p>
-          <p>Temple office: <a href="tel:+914802803061">0480 280 3061</a></p>
+          <p class="kicker" data-i18n="don.kicker.offer">Offer a gift</p>
+          <h2 data-i18n="don.h2.rec">Record a donation</h2>
+          <p data-i18n="don.p.rec">Choose a cause and an amount. You will receive on-screen confirmation. Please also complete payment on the official donation page or by speaking to the temple office, until the new gateway is live.</p>
+          <p><a href="https://kodungallursreekurumbabhagavathytemple.org/donations/donationdetails" rel="noopener" data-i18n="don.a.official">Official donation page →</a></p>
+          <p><span data-i18n="don.office">Temple office:</span> <a href="tel:+914802803061">0480 280 3061</a></p>
         </div>
         <div class="form-card">
-          <form data-confirm="Your donation pledge has been recorded. Please complete payment through the official temple donation page or the office at 0480 280 3061.">
-            <label>Name <input name="name" required></label>
+          <form data-i18n-confirm="don.confirm" data-confirm="Your donation pledge has been recorded. Please complete payment through the official temple donation page or the office at 0480 280 3061.">
+            <label><span data-i18n="form.name">Name</span> <input name="name" required></label>
             <div class="form-row">
-              <label>Phone <input name="phone" type="tel" required></label>
-              <label>Email <input name="email" type="email"></label>
+              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" required></label>
+              <label><span data-i18n="form.email">Email</span> <input name="email" type="email"></label>
             </div>
-            <label>Cause
+            <label><span data-i18n="form.cause">Cause</span>
               <select name="cause" required>
-                <option value="annadanam">Annadanam</option>
-                <option value="charity">Charity fund</option>
-                <option value="renovation">Temple renovation</option>
+                <option value="annadanam" data-i18n="opt.ann">Annadanam</option>
+                <option value="charity" data-i18n="opt.cha">Charity fund</option>
+                <option value="renovation" data-i18n="opt.ren">Temple renovation</option>
               </select>
             </label>
-            <label>Amount (INR)
+            <label><span data-i18n="form.amount">Amount (INR)</span>
               <input id="amount" name="amount" type="number" min="100" step="100" value="1001" required>
             </label>
             <div class="amounts" role="group" aria-label="Suggested amounts">
@@ -74,14 +82,15 @@
               <button type="button" data-amount="5001">₹5,001</button>
               <button type="button" data-amount="10001">₹10,001</button>
             </div>
-            <label>Note <textarea name="note" placeholder="In whose name, or a dedication"></textarea></label>
-            <button class="btn btn-blood" type="submit">Pledge this gift</button>
+            <label><span data-i18n="form.note">Note</span> <textarea name="note" data-i18n-placeholder="form.note.ph" placeholder="In whose name, or a dedication"></textarea></label>
+            <button class="btn btn-blood" type="submit" data-i18n="form.pledge">Pledge this gift</button>
             <p class="form-success" role="status"></p>
           </form>
         </div>
       </div>
     </section>
   </main>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>
