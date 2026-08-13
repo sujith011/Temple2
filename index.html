@@ -8,10 +8,8 @@
   <script>
     (function () {
       var lang = localStorage.getItem("temple-lang") === "ml" ? "ml" : "en";
-      var night = localStorage.getItem("temple-theme") === "night";
       document.documentElement.lang = lang;
       document.documentElement.classList.toggle("lang-ml", lang === "ml");
-      document.documentElement.classList.toggle("theme-night", night);
       document.documentElement.classList.add("i18n-wait");
     })();
   </script>
