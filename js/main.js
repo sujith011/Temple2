@@ -1,5 +1,6 @@
 (function () {
   const STORAGE = "temple-lang";
+  const THEME_KEY = "temple-theme";
   const page = document.body.dataset.page || "home";
   const dicts = window.TEMPLE_I18N || { en: {}, ml: {} };
 
@@ -46,6 +47,27 @@
     });
   }
 
+  function currentTheme() {
+    return localStorage.getItem(THEME_KEY) === "night" ? "night" : "day";
+  }
+
+  function applyTheme(theme) {
+    const night = theme === "night";
+    document.documentElement.classList.toggle("theme-night", night);
+    localStorage.setItem(THEME_KEY, night ? "night" : "day");
+    document.querySelectorAll(".theme-btn").forEach((btn) => {
+      btn.setAttribute("aria-pressed", String(btn.dataset.theme === theme));
+    });
+    const rail = document.querySelector(".dheepam-rail");
+    if (rail) {
+      rail.querySelectorAll(".flame, .glow").forEach((el) => {
+        el.style.animation = "none";
+        void el.offsetWidth;
+        el.style.animation = "";
+      });
+    }
+  }
+
   const favicon = document.createElement("link");
   favicon.rel = "icon";
   favicon.href = "assets/images/emblem.jpg";
@@ -71,6 +93,10 @@
           <a class="donate-link" href="donate.html" data-nav="donate" data-i18n="nav.donate">Donate</a>
         </nav>
         <div class="header-tools">
+          <div class="theme-switch" role="group" data-i18n-aria="theme.label" aria-label="Theme">
+            <button type="button" class="theme-btn" data-theme="day" data-i18n="theme.morning">Morning</button>
+            <button type="button" class="theme-btn" data-theme="night"><span class="mini-flame" aria-hidden="true"></span><span data-i18n="theme.night">Night</span></button>
+          </div>
           <div class="lang-switch" role="group" data-i18n-aria="lang.label" aria-label="Language">
             <button type="button" class="lang-btn" data-lang="en">EN</button>
             <button type="button" class="lang-btn" data-lang="ml">മല</button>
@@ -109,7 +135,19 @@
     </footer>
   `;
 
+  const lamps = Array.from({ length: 9 }, () => `
+    <div class="dheepam" aria-hidden="true">
+      <span class="dheepam-flame"><span class="wick"></span><span class="flame"></span><span class="glow"></span></span>
+      <span class="dheepam-bowl"></span>
+      <span class="dheepam-stem"></span>
+    </div>
+  `).join("");
+
   document.body.insertAdjacentHTML("afterbegin", header);
+  document.querySelector(".site-header").insertAdjacentHTML(
+    "afterend",
+    `<div class="dheepam-rail" aria-hidden="true">${lamps}</div>`
+  );
   document.body.insertAdjacentHTML("beforeend", footer);
 
   document.querySelectorAll("[data-nav]").forEach((link) => {
@@ -127,6 +165,10 @@
 
   document.querySelectorAll(".lang-btn").forEach((btn) => {
     btn.addEventListener("click", () => applyLang(btn.dataset.lang));
+  });
+
+  document.querySelectorAll(".theme-btn").forEach((btn) => {
+    btn.addEventListener("click", () => applyTheme(btn.dataset.theme));
   });
 
   document.querySelectorAll("form[data-confirm]").forEach((form) => {
@@ -151,4 +193,5 @@
   });
 
   applyLang(currentLang());
+  applyTheme(currentTheme());
 })();
