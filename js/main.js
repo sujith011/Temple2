@@ -58,7 +58,7 @@
         <a class="brand" href="index.html">
           <img src="assets/images/emblem.jpg" alt="">
           <span class="brand-text">
-            <span class="brand-ml">ശ്രീ കുരുംബ ഭഗവതി</span>
+            <span class="brand-ml" data-i18n="brand.name">Sree Kurumba Bhagavathy</span>
             <span class="brand-en" data-i18n="brand.sub">Kodungallur Temple</span>
           </span>
         </a>

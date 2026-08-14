@@ -119,7 +119,7 @@ a:hover {
 }
 
 .brand-ml {
-  font-family: "Noto Serif Malayalam", serif;
+  font-family: "Cormorant Garamond", serif;
   font-size: 0.92rem;
   color: var(--blood);
   font-weight: 700;
@@ -218,7 +218,9 @@ html.lang-ml h4,
 html.lang-ml .page-banner h1,
 html.lang-ml .fact b,
 html.lang-ml .ritual b,
-html.lang-ml .hero .lede {
+html.lang-ml .hero h1,
+html.lang-ml .hero .lede,
+html.lang-ml .brand-ml {
   font-family: "Noto Serif Malayalam", "Cormorant Garamond", serif;
 }
 
@@ -292,7 +294,7 @@ html.i18n-wait.lang-ml [data-i18n-html] {
 }
 
 .hero h1 {
-  font-family: "Noto Serif Malayalam", "Cormorant Garamond", serif;
+  font-family: "Cormorant Garamond", serif;
   font-weight: 700;
   font-size: clamp(2.4rem, 6vw, 5.1rem);
   line-height: 1.15;

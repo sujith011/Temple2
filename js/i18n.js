@@ -1,6 +1,7 @@
 window.TEMPLE_I18N = {
   en: {
     "skip": "Skip to content",
+    "brand.name": "Sree Kurumba Bhagavathy",
     "brand.sub": "Kodungallur Temple",
     "nav.home": "Home",
     "nav.history": "History",
@@ -28,6 +29,8 @@ window.TEMPLE_I18N = {
     "footer.official": "Official booking site",
     "footer.tiny": "A new public website for devotees, built from temple records, Kerala Tourism, and living tradition. Photography inside the sanctum is not permitted. Festival dates follow the Malayalam calendar.",
 
+    "home.h1.a": "Kodungallur",
+    "home.h1.b": "Amma",
     "home.eyebrow": "Kodungallur · Thrissur · Kerala",
     "home.lede": "Sree Kurumba Bhagavathy Temple — the Mother of Kodungallur, head of sixty-four Bhadrakali kavus, and one of the oldest living temples in India.",
     "home.cta.darshan": "Darshan timings",
@@ -291,6 +294,7 @@ window.TEMPLE_I18N = {
   },
   ml: {
     "skip": "ഉള്ളടക്കത്തിലേക്ക് പോകുക",
+    "brand.name": "ശ്രീ കുരുംബ ഭഗവതി",
     "brand.sub": "കൊടുങ്ങല്ലൂർ ക്ഷേത്രം",
     "nav.home": "ഹോം",
     "nav.history": "ചരിത്രം",
@@ -318,6 +322,8 @@ window.TEMPLE_I18N = {
     "footer.official": "ഔദ്യോഗിക ബുക്കിംഗ് സൈറ്റ്",
     "footer.tiny": "ക്ഷേത്ര രേഖകൾ, കേരള ടൂറിസം, ജീവിക്കുന്ന ഐതിഹ്യം എന്നിവയെ ആശ്രയിച്ച് ഭക്തർക്കായി തയ്യാറാക്കിയ പുതിയ വെബ്സൈറ്റ്. ശ്രീകോവിലിനകത്ത് ഫോട്ടോ എടുക്കരുത്. ഉത്സവത്തീയതികൾ മലയാളകലണ്ടർ അനുസരിച്ചാണ്.",
 
+    "home.h1.a": "കൊടുങ്ങല്ലൂർ",
+    "home.h1.b": "അമ്മ",
     "home.eyebrow": "കൊടുങ്ങല്ലൂർ · തൃശ്ശൂർ · കേരളം",
     "home.lede": "ശ്രീ കുരുംബ ഭഗവതി ക്ഷേത്രം — കൊടുങ്ങല്ലൂരിന്റെ അമ്മ. അറുപത്തിനാല് ഭദ്രകാളി കാവുകളുടെ തലസ്ഥാനം. ഇന്ത്യയിലെ ഏറ്റവും പഴക്കമുള്ള ജീവിക്കുന്ന ക്ഷേത്രങ്ങളിലൊന്ന്.",
     "home.cta.darshan": "ദർശന സമയം",
