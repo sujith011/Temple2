@@ -150,5 +150,52 @@
     });
   });
 
+  if (window.gsap && window.ScrollTrigger) {
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".hero-content > *", {
+      y: 34,
+      opacity: 0,
+      duration: 0.9,
+      stagger: 0.12,
+      ease: "power3.out",
+      delay: 0.15
+    });
+
+    document.querySelectorAll(".frame, .card, .compound article, .donate-card, .form-card").forEach((element) => {
+      gsap.from(element, {
+        y: 42,
+        opacity: 0,
+        scale: 0.96,
+        duration: 0.85,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: element,
+          start: "top 88%",
+          once: true
+        }
+      });
+    });
+
+    document.querySelectorAll(".section h2, .page-banner h1").forEach((heading) => {
+      gsap.from(heading, {
+        y: 26,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: { trigger: heading, start: "top 88%", once: true }
+      });
+    });
+
+    const visual = document.querySelector(".hero-media img");
+    if (visual) {
+      gsap.to(visual, {
+        yPercent: 10,
+        ease: "none",
+        scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
+      });
+    }
+  }
+
   applyLang(currentLang());
 })();

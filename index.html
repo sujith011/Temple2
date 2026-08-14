@@ -20,13 +20,13 @@
 </head>
 <body data-page="home">
   <main id="main">
-    <section class="hero">
+    <section class="hero hero-editorial">
       <div class="hero-media">
         <img src="assets/images/official-temple.png" alt="The terracotta-roofed Kerala shrine of Sree Kurumba Bhagavathy Temple, Kodungallur">
       </div>
       <div class="hero-content">
         <p class="eyebrow" data-i18n="home.eyebrow">Kodungallur · Thrissur · Kerala</p>
-        <h1>കൊടുങ്ങല്ലൂർ അമ്മ</h1>
+        <h1><span>കൊടുങ്ങല്ലൂർ</span> <span class="hero-image-word" aria-hidden="true"></span> <span>അമ്മ</span></h1>
         <p class="lede" data-i18n="home.lede">Sree Kurumba Bhagavathy Temple — the Mother of Kodungallur, head of sixty-four Bhadrakali kavus, and one of the oldest living temples in India.</p>
         <div class="hero-actions">
           <a class="btn btn-gold" href="darshan.html" data-i18n="home.cta.darshan">Darshan timings</a>
@@ -35,7 +35,7 @@
       </div>
     </section>
 
-    <section class="facts">
+    <section class="facts" aria-label="Temple at a glance">
       <div class="facts-grid">
         <div class="fact"><b data-i18n="home.fact1">Bhadrakali</b><span data-i18n="home.fact1s">Sree Kurumba · Kodungallur Amma</span></div>
         <div class="fact"><b data-i18n="home.fact2">4:00 AM – 8:00 PM</b><span data-i18n="home.fact2s">Closed 12 noon to 4 PM</span></div>
@@ -44,7 +44,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section temple-introduction">
       <div class="wrap split">
         <div class="copy">
           <p class="kicker" data-i18n="home.kicker.temple">The temple</p>
@@ -61,12 +61,12 @@
       </div>
     </section>
 
-    <section class="section" style="background: var(--parchment);">
+    <section class="section stories-section" style="background: var(--parchment);">
       <div class="wrap">
         <p class="kicker" data-i18n="home.kicker.sthala">Sthalapurana</p>
         <h2 data-i18n="home.h2.two">Two stories the temple keeps</h2>
         <p class="lede-body" data-i18n="home.p.two">The shrine holds two founding legends. The website does not choose between them. Both are living tradition.</p>
-        <div class="cards" style="margin-top: 2rem;">
+        <div class="cards bento-grid" style="margin-top: 2rem;">
           <article class="card">
             <img src="assets/images/evening-lamps.jpg" alt="Oil lamps at dusk in a Kerala temple courtyard">
             <div class="card-body">
@@ -95,11 +95,11 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section festivals-section">
       <div class="wrap">
         <p class="kicker" data-i18n="home.kicker.utsavam">Utsavam</p>
         <h2 data-i18n="home.h2.fest">Festivals that still shake the town</h2>
-        <div class="cards">
+        <div class="cards bento-grid">
           <article class="card">
             <img src="assets/images/official-bharani.png" alt="Oracles in red during the Kodungallur Bharani festival">
             <div class="card-body">
@@ -143,7 +143,7 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section seva-section">
       <div class="wrap center">
         <p class="kicker" data-i18n="home.kicker.seva">Seva</p>
         <h2 data-i18n="home.h2.seva">Annadanam, charity, renovation</h2>
@@ -153,6 +153,8 @@
     </section>
   </main>
   <script src="js/i18n.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

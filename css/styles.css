@@ -948,3 +948,122 @@ textarea {
     min-height: 78vh;
   }
 }
+
+/* 2026 editorial redesign */
+:root {
+  --plum: #21090f;
+  --wine: #560e1e;
+  --sun: #e5a93c;
+  --mist: #fffaf0;
+  --max: 1320px;
+  --header: 96px;
+}
+
+body {
+  background: var(--mist);
+  font-family: "Cabinet Grotesk", "Source Sans 3", "Noto Sans Malayalam", sans-serif;
+  overflow-x: hidden;
+}
+
+main { overflow-x: hidden; width: 100%; max-width: 100%; }
+
+.site-header {
+  width: min(1280px, calc(100% - 2rem));
+  height: 72px;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid rgba(229, 169, 60, .32);
+  border-radius: 999px;
+  background: rgba(33, 9, 15, .84);
+  color: var(--mist);
+  box-shadow: 0 12px 38px rgba(33, 9, 15, .22);
+}
+
+.header-inner { width: calc(100% - 1.2rem); }
+.brand img { width: 43px; height: 43px; box-shadow: 0 0 0 1px var(--sun); }
+.brand-en, .nav a { color: var(--mist); }
+.brand-ml { color: var(--sun); }
+.nav a { font-size: .73rem; letter-spacing: .12em; }
+.nav a:hover, .nav a[aria-current="page"] { color: var(--sun); }
+.nav a.donate-link { background: var(--sun); color: var(--plum); padding: .48rem .85rem; }
+.lang-switch { border-color: rgba(229,169,60,.65); background: transparent; }
+.lang-btn { color: var(--mist); }
+.lang-btn[aria-pressed="true"] { background: var(--sun); color: var(--plum); }
+
+.hero-editorial { min-height: 100svh; align-items: center; }
+.hero-media img { filter: saturate(.78) contrast(1.12) brightness(.72); transform: scale(1.03); }
+.hero-media::after { background: linear-gradient(90deg, rgba(20,4,9,.86) 0%, rgba(28,7,12,.55) 47%, rgba(20,4,9,.17) 100%), linear-gradient(0deg, rgba(20,4,9,.62), transparent 45%); }
+.hero-content { margin: 6.5rem auto 0; align-self: center; }
+.hero h1 { max-width: 72rem; font-size: clamp(3.25rem, 7vw, 7rem); line-height: .94; letter-spacing: -.055em; margin: .7rem 0 1.5rem; }
+.hero h1 span { display: inline-block; }
+.hero-image-word { width: clamp(4.2rem, 8vw, 7.8rem); height: .58em; margin: 0 .07em .04em; border-radius: 999px; background: url("../assets/images/evening-lamps.jpg") center/cover; vertical-align: middle; box-shadow: inset 0 0 0 2px rgba(255,250,240,.45); }
+.hero .lede { max-width: 42rem; font-size: clamp(1.18rem, 2vw, 1.6rem); line-height: 1.36; color: #f2ddae; }
+.eyebrow { color: var(--sun); letter-spacing: .19em; }
+.eyebrow::before { background: var(--sun); }
+.btn { border-radius: 4px; padding: .9rem 1.35rem; transition: transform .3s ease, background .3s ease, color .3s ease; }
+.btn:hover { transform: translateY(-3px); }
+.btn-gold { background: var(--sun); color: var(--plum); }
+.btn-ghost { border-color: rgba(255,250,240,.65); }
+
+.facts { position: relative; z-index: 2; margin: -1px auto 0; background: var(--plum); }
+.facts-grid { width: min(1320px, calc(100% - 2rem)); }
+.fact { padding: 2rem 1.5rem; border-right-color: rgba(229,169,60,.22); }
+.fact b { font-family: "Cormorant Garamond", "Noto Serif Malayalam", serif; font-size: 1.72rem; color: var(--sun); }
+
+.section { padding: clamp(6rem, 12vw, 11rem) 0; }
+.wrap { width: min(1320px, calc(100% - 2rem)); }
+.kicker { color: var(--wine); letter-spacing: .15em; }
+h2, h3, h4 { font-family: "Cormorant Garamond", "Noto Serif Malayalam", serif; }
+h2 { max-width: 18ch; font-size: clamp(2.8rem, 5.2vw, 5.5rem); line-height: .96; letter-spacing: -.045em; }
+h3 { font-size: 2rem; line-height: 1; }
+.lede-body { font-size: 1.2rem; line-height: 1.6; }
+.split { gap: clamp(2rem, 6vw, 7rem); }
+.frame img { height: min(640px, 68vw); border-radius: 2px; filter: saturate(.8) contrast(1.07); transition: transform .8s cubic-bezier(.2,.75,.25,1); }
+.frame { overflow: hidden; }
+.frame:hover img { transform: scale(1.055); }
+.frame::before { inset: 14px -14px -14px 14px; border-radius: 0; }
+
+.bento-grid { grid-auto-flow: dense; grid-template-columns: repeat(12, 1fr); gap: 1px; background: rgba(86,14,30,.18); }
+.bento-grid .card { border: 0; border-radius: 0; box-shadow: none; min-height: 390px; background: #fffdf8; }
+.bento-grid .card:nth-child(1) { grid-column: span 5; }
+.bento-grid .card:nth-child(2) { grid-column: span 7; }
+.bento-grid .card:nth-child(3) { grid-column: span 12; display: grid; grid-template-columns: .82fr 1.18fr; }
+.bento-grid .card:nth-child(3) img { height: 100%; }
+.card { transition: transform .45s ease, box-shadow .45s ease; }
+.card:hover { transform: translateY(-8px); box-shadow: 0 22px 45px rgba(33,9,15,.13); }
+.card img { transition: transform .7s cubic-bezier(.2,.75,.25,1), filter .5s ease; }
+.card:hover img { transform: scale(1.06); filter: saturate(1.08); }
+.card-body { padding: 2rem; }
+.card .more { color: var(--wine); }
+
+.band { background: linear-gradient(100deg, rgba(33,9,15,.96), rgba(86,14,30,.7)), url("../assets/images/evening-lamps.jpg") center/cover fixed; }
+.band h2 { max-width: 11ch; font-size: clamp(3rem, 5.2vw, 5.8rem); }
+.seva-section { background: radial-gradient(circle at 50% 130%, #e7bb62, transparent 48%), var(--plum); color: var(--mist); }
+.seva-section h2 { margin-left: auto; margin-right: auto; color: var(--mist); max-width: 14ch; }
+.seva-section .kicker, .seva-section .lede-body { color: #f1d89f; }
+.seva-section .btn-blood { background: var(--sun); color: var(--plum); }
+
+.page-banner { min-height: 520px; }
+.page-banner::after { background: linear-gradient(100deg, rgba(33,9,15,.9), rgba(33,9,15,.18)); }
+.page-banner .wrap { padding-bottom: 4rem; }
+.page-banner h1 { max-width: 15ch; font-size: clamp(3.4rem, 7vw, 6.8rem); line-height: .94; letter-spacing: -.055em; }
+.story { gap: 4rem; padding: 4rem 0; }
+.story img { border-radius: 2px; }
+.compound article, .donate-card, .form-card { border-radius: 2px; }
+.timetable { border-radius: 2px; }
+.site-footer { padding: 7rem 0 1.5rem; background: #150408; }
+.footer-grid { gap: 4rem; }
+
+@media (max-width: 900px) {
+  .site-header { width: calc(100% - 1rem); height: 64px; top: 8px; }
+  .brand-en { display: none; }
+  .nav { top: 72px; left: -.5rem; right: -.5rem; border-radius: 0 0 18px 18px; background: var(--plum); }
+  .nav-toggle { border-color: var(--sun); color: var(--sun); }
+  .hero-content { margin-top: 5rem; }
+  .hero h1 { font-size: clamp(3.1rem, 15vw, 5.6rem); }
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-grid .card, .bento-grid .card:nth-child(n) { grid-column: auto; min-height: 0; display: flex; }
+  .bento-grid .card:nth-child(3) img { height: 220px; }
+  .section { padding: 5.5rem 0; }
+}
