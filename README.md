@@ -28,10 +28,10 @@ Then open http://127.0.0.1:8080/
 
 ## Deploy on Vercel
 
-Repo: [github.com/sujith011/teemp](https://github.com/sujith011/teemp)
+Repo: [github.com/sujith011/Temple2](https://github.com/sujith011/Temple2)
 
 1. Go to [vercel.com/new](https://vercel.com/new)
-2. Import `sujith011/teemp`
+2. Import `sujith011/Temple2`
 3. Framework preset: **Other** (static HTML)
 4. Leave build command empty, output directory empty
 5. Deploy
