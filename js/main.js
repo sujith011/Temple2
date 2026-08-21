@@ -91,15 +91,13 @@
         <div>
           <h3 data-i18n="footer.visit">Visit</h3>
           <p data-i18n-html="footer.addr">Thekkenada Road, Pettumma<br>Kodungallur, Kerala 680664</p>
-          <p><a href="tel:+914802803061">0480 280 3061</a><br>
-          <a href="tel:+919188958032">+91 91889 58032</a></p>
         </div>
         <div>
           <h3 data-i18n="footer.temple">Temple</h3>
           <p><a href="darshan.html" data-i18n="footer.timings">Darshan timings</a><br>
           <a href="darshan.html#pooja" data-i18n="footer.pooja">Book a pooja</a><br>
           <a href="donate.html" data-i18n="footer.donate">Annadanam &amp; donations</a><br>
-          <a href="https://kodungallursreekurumbabhagavathytemple.org/" rel="noopener" data-i18n="footer.official">Official booking site</a></p>
+          <a href="visit.html" data-i18n="footer.reach">How to reach</a></p>
         </div>
       </div>
       <div class="wrap tiny" data-i18n="footer.tiny">
@@ -130,14 +128,106 @@
   });
 
   document.querySelectorAll("form[data-confirm]").forEach((form) => {
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      const box = form.querySelector(".form-success");
-      if (box) {
-        box.classList.add("show");
-        box.textContent = form.dataset.confirm;
+
+      const successBox = form.querySelector(".form-success");
+      const errorBox = form.querySelector(".form-error");
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn ? submitBtn.textContent : "Submit";
+      const lang = currentLang();
+
+      if (successBox) successBox.classList.remove("show");
+      if (errorBox) {
+        errorBox.classList.remove("show");
+        errorBox.textContent = "";
       }
-      form.reset();
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = lang === "ml" ? "അയക്കുന്നു..." : "Sending...";
+      }
+
+      const config = window.TEMPLE_CONFIG || {
+        adminEmail: "templeoffice@example.com",
+        provider: "formsubmit",
+        web3formsKey: ""
+      };
+
+      const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+
+      // Determine form type
+      let formType = "inquiry";
+      if (page === "darshan") formType = "pooja";
+      else if (page === "donate") formType = "donate";
+
+      try {
+        // 1. Try serverless endpoint (Supabase DB + Resend emails)
+        const response = await fetch("/api/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            type: formType,
+            data: data
+          })
+        });
+
+        // If running in an environment with /api/submit available
+        if (response.ok) {
+          if (successBox) {
+            successBox.classList.add("show");
+            successBox.textContent = form.dataset.confirm || (lang === "ml" ? "സ്വീകരിച്ചു! നിങ്ങളുടെ അപേക്ഷ രേഖപ്പെടുത്തി." : "Received! Your request has been recorded.");
+          }
+          form.reset();
+          return;
+        }
+
+        // 2. Fallback to FormSubmit if /api/submit is not configured
+        const recipient = config.adminEmail || "templeoffice@example.com";
+        const fallbackRes = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify({
+            _subject: `[Kodungallur Temple] ${formType.toUpperCase()} Request - ${data.name || 'Devotee'}`,
+            _template: "table",
+            _captcha: "false",
+            ...data
+          })
+        });
+
+        if (fallbackRes.ok) {
+          if (successBox) {
+            successBox.classList.add("show");
+            successBox.textContent = form.dataset.confirm || (lang === "ml" ? "സ്വീകരിച്ചു! നിങ്ങളുടെ അപേക്ഷ രേഖപ്പെടുത്തി." : "Received! Your request has been recorded.");
+          }
+          form.reset();
+        } else {
+          throw new Error("Submission failed");
+        }
+      } catch (err) {
+        console.warn("Form submission error:", err);
+        if (errorBox) {
+          errorBox.classList.add("show");
+          errorBox.textContent = lang === "ml"
+            ? "സന്ദേശം അയക്കാൻ സാധിച്ചില്ല. ദയവായി നിങ്ങളുടെ ഇന്റർനെറ്റ് കണക്ഷൻ പരിശോധിക്കുക."
+            : "Could not send the request. Please check your internet connection and try again.";
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalBtnText;
+        }
+      }
     });
   });
 

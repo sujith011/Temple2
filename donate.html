@@ -32,7 +32,7 @@
       <div class="wrap">
         <p class="kicker" data-i18n="don.kicker.how">How gifts are used</p>
         <h2 data-i18n="don.h2.lives">The temple lives on what devotees bring</h2>
-        <p class="lede-body" data-i18n="don.p.intro">The present official site names three causes. This page keeps them, so a gift can be aimed. Payment will be connected to the Cochin Devaswom Board account; until then your pledge is recorded here and should be confirmed by phone or the existing donation page.</p>
+        <p class="lede-body" data-i18n="don.p.intro">Contributions support three sacred causes. Choose a cause below to direct your gift.</p>
         <div class="donate-grid mt-2">
           <article class="donate-card">
             <h3 data-i18n="don.ann.h">Annadanam</h3>
@@ -55,12 +55,10 @@
         <div>
           <p class="kicker" data-i18n="don.kicker.offer">Offer a gift</p>
           <h2 data-i18n="don.h2.rec">Record a donation</h2>
-          <p data-i18n="don.p.rec">Choose a cause and an amount. You will receive on-screen confirmation. Please also complete payment on the official donation page or by speaking to the temple office, until the new gateway is live.</p>
-          <p><a href="https://kodungallursreekurumbabhagavathytemple.org/donations/donationdetails" rel="noopener" data-i18n="don.a.official">Official donation page →</a></p>
-          <p><span data-i18n="don.office">Temple office:</span> <a href="tel:+914802803061">0480 280 3061</a></p>
+          <p data-i18n="don.p.rec">Choose a cause and an amount. You will receive on-screen confirmation once your pledge is recorded.</p>
         </div>
         <div class="form-card">
-          <form data-i18n-confirm="don.confirm" data-confirm="Your donation pledge has been recorded. Please complete payment through the official temple donation page or the office at 0480 280 3061.">
+          <form data-i18n-confirm="don.confirm" data-confirm="Received! Your donation pledge has been recorded.">
             <label><span data-i18n="form.name">Name</span> <input name="name" required></label>
             <div class="form-row">
               <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" required></label>
@@ -85,11 +83,13 @@
             <label><span data-i18n="form.note">Note</span> <textarea name="note" data-i18n-placeholder="form.note.ph" placeholder="In whose name, or a dedication"></textarea></label>
             <button class="btn btn-blood" type="submit" data-i18n="form.pledge">Pledge this gift</button>
             <p class="form-success" role="status"></p>
+            <p class="form-error" role="alert"></p>
           </form>
         </div>
       </div>
     </section>
   </main>
+  <script src="js/config.js"></script>
   <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>

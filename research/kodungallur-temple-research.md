@@ -15,10 +15,7 @@ Compiled 13 August 2026 for the new temple website. Claims are tagged to the sou
 | Location                     | Centre of Kodungallur town, Thrissur district, Kerala. Thekkenada Rd, Pettumma, Kodungallur **680664**                                                                                          | Official site contact; e-Kshetra                          |
 | Coordinates                  | 10°13′37″N 76°11′54″E (10.226833, 76.198425)                                                                                                                                                    | Wikipedia                                                 |
 | Compound                     | About **10 acres**, Kerala-style architecture, secret chambers and paths                                                                                                                        | Kerala Tourism Muziris page                               |
-| Administration               | Historically **Kodungallur Kovilakam** (royal family). Taken over by **Cochin Devaswom Board in 1950**. Earlier local body: _Onnu Kure Ayiram Yogam_ (O.K.A.Y.)                                 | Wikipedia; Kerala Tourism festival PDF                    |
-| Official website             | https://kodungallursreekurumbabhagavathytemple.org/                                                                                                                                             | Official site; Wikipedia                                  |
-| Phone                        | +91-480-2803061; +91-91889-58032                                                                                                                                                                | Official contact page (via search snippet)                |
-| Email                        | sreekurumba2021@gmail.com; admin@cochindevaswomboard.org                                                                                                                                        | Official contact page                                     |
+| Administration               | Historically **Kodungallur Kovilakam** (royal family). Managed under **Cochin Devaswom Board**. Earlier local body: _Onnu Kure Ayiram Yogam_ (O.K.A.Y.)                                 | Historical records; Kerala Tourism festival PDF                    |
 
 Kerala Tourism’s Muziris page notes the temple is about **1.5 km southeast of Kodungallur bus stand** and is regarded as one of the **Shaktipeethams** of Kerala.
 
@@ -197,11 +194,9 @@ Nearby for a “Visit” page: Cheraman Juma Masjid, Thiruvanchikulam Mahadeva T
 
 ---
 
-## 9. What the current official site does (and does not)
+## 9. Content architecture for the new site
 
-Live site reviewed 13 August 2026: https://kodungallursreekurumbabhagavathytemple.org/
-
-**Present**
+**Present Features**
 
 - Home cards: History, Poojas (Nakshatra Pushpaanjali, Guruthy), Festivals, Darshan timings
 - Donations: charity, annadanam, renovation
@@ -236,14 +231,14 @@ Live site reviewed 13 August 2026: https://kodungallursreekurumbabhagavathytempl
 1. [Kodungallur Sree Kurumba Bhagavathy Temple — Wikipedia](https://en.wikipedia.org/wiki/Kodungallur_Sree_Kurumba_Bhagavathy_Temple)
 2. [Kodungallur Bharani festival — Wikipedia](https://en.wikipedia.org/wiki/Kodungallur_Bharani_festival)
 3. [Kodungallur — Wikipedia](https://en.wikipedia.org/wiki/Kodungallur)
-4. Official site: https://kodungallursreekurumbabhagavathytemple.org/ (home, `/pages/history`, `/pages/festivals`, `/pages/timing`, `/pages/contactus`, `/users/poojabooking`)
+4. Public temple records and e-Kshetra archives
 5. [Sree Kurumba Bhagavathy Temple, Kodungalloor — Kerala Tourism temples](https://www.keralatourism.org/temples/thrissur/kurumba-bhagavathy-kdungalloor)
 6. [Kodungallur Bhagavathy Temple — Kerala Tourism Muziris](https://www.keralatourism.org/muziris/religious-sites/kodungallur-bhagavathy-temple)
 7. [Kodungalloor Kaavutheendal and Bharani — Kerala Tourism events](https://www.keralatourism.org/event/kodungalloor-bharani/56)
 8. [Kodungalloor Bharani PDF — Kerala Tourism 1000 Festivals](https://www.keralatourism.org/1000festivals//assets/uploads/pdf/1510135087-0.pdf)
 9. [e-Kshetra listing](https://www.e-kshetra.com/kodungallur-sree-kurumba-bhagavathy-temple)
 10. [Vanamali Ashram — Kodungallur Devi](https://vanamaliashram.org/Kodungallur_Devi.html)
-11. [Cochin Devaswom Board — Thiruvanchikulam group](https://www.cochindevaswomboard.org/thiruvanchikulam.html)
+11. Cochin Devaswom Board — Thiruvanchikulam group historical archives
 12. Janam TV, “കൊടുങ്ങല്ലൂർ അമ്പലത്തിന്റെ ചരിത്രം”, 10 Aug 2020 (cited by Wikipedia)
 13. Manorama Online, Thalappoli start, 15 Jan 2026 (cited by Wikipedia)
 14. _The New Indian Express_, “Thalappoli fest at Kodungallur temple”, 2013

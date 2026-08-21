@@ -1,6 +1,6 @@
 # Kodungallur Sree Kurumba Bhagavathy Temple — new website
 
-A public site for devotees, replacing the thin current pages at [kodungallursreekurumbabhagavathytemple.org](https://kodungallursreekurumbabhagavathytemple.org/).
+A modern website for devotees of Kodungallur Sree Kurumba Bhagavathy Temple.
 
 ## What is here
 
@@ -10,9 +10,18 @@ A public site for devotees, replacing the thin current pages at [kodungallursree
 - `darshan.html` — timings, vazhipadu, dress, pooja request
 - `visit.html` — how to reach, map, Muziris, contact
 - `donate.html` — annadanam, charity, renovation
+- `js/config.js` — website configuration for email delivery
 - `research/kodungallur-temple-research.md` — cited research used to write the copy
 
-Pooja and donation forms work in the browser (they confirm the request). They are not yet wired to the Cochin Devaswom Board payment or booking APIs. Links to the current official booking and donation pages are kept.
+## Email Delivery for Forms
+
+Form submissions from **Darshan** (vazhipadu requests), **Donate** (donation pledges), and **Visit** (office messages) are delivered directly to your email inbox.
+
+To set or change your recipient email address:
+1. Open [`js/config.js`](file:///d:/Newone/Temple%202/js/config.js)
+2. Change `adminEmail: "your-temple-email@example.com"` to your desired email address.
+
+*(Note: On the first submission to a new email address, FormSubmit sends a 1-click confirmation link to your inbox to activate delivery).*
 
 The header has an **EN / മല** switch. The choice is saved in the browser and applies on every page.
 
@@ -28,10 +37,8 @@ Then open http://127.0.0.1:8080/
 
 ## Deploy on Vercel
 
-Repo: [github.com/sujith011/Temple2](https://github.com/sujith011/Temple2)
-
 1. Go to [vercel.com/new](https://vercel.com/new)
-2. Import `sujith011/Temple2`
+2. Import your GitHub repository
 3. Framework preset: **Other** (static HTML)
 4. Leave build command empty, output directory empty
 5. Deploy
