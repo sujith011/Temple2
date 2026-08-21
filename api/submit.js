@@ -18,7 +18,12 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing submission payload' });
   }
 
-  const SUPABASE_URL = (process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
+  let rawUrl = (process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
+  const matchDashboard = rawUrl.match(/supabase\.com\/dashboard\/project\/([a-zA-Z0-9_-]+)/i);
+  if (matchDashboard) {
+    rawUrl = `https://${matchDashboard[1]}.supabase.co`;
+  }
+  const SUPABASE_URL = rawUrl.replace(/\/rest\/v1\/?$/i, '');
   const SUPABASE_ANON_KEY = (process.env.SUPABASE_ANON_KEY || '').trim();
   const RESEND_API_KEY = (process.env.RESEND_API_KEY || '').trim();
   const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || process.env.OWNER_EMAIL || '').trim();
@@ -67,12 +72,15 @@ export default async function handler(req, res) {
         };
       }
 
-      const dbResponse = await fetch(`${SUPABASE_URL}/rest/v1/${tableName}`, {
+      const endpoint = `${SUPABASE_URL}/rest/v1/${tableName}`;
+
+      const dbResponse = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'apikey': SUPABASE_ANON_KEY,
           'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json',
+          'Accept': 'application/json',
           'Prefer': 'return=representation'
         },
         body: JSON.stringify(dbRecord)
@@ -80,11 +88,11 @@ export default async function handler(req, res) {
 
       if (!dbResponse.ok) {
         const errorText = await dbResponse.text();
-        dbResult = { status: 'error', code: dbResponse.status, error: errorText };
+        dbResult = { status: 'error', code: dbResponse.status, endpoint: endpoint, error: errorText };
         console.error('Supabase DB Insert Error:', errorText);
       } else {
         const row = await dbResponse.json().catch(() => null);
-        dbResult = { status: 'success', row: row };
+        dbResult = { status: 'success', endpoint: endpoint, row: row };
       }
     }
 
