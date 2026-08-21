@@ -18,10 +18,12 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing submission payload' });
   }
 
-  const SUPABASE_URL = process.env.SUPABASE_URL;
-  const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
-  const RESEND_API_KEY = process.env.RESEND_API_KEY;
-  const ADMIN_EMAIL = process.env.ADMIN_EMAIL || process.env.OWNER_EMAIL;
+  const SUPABASE_URL = (process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
+  const SUPABASE_ANON_KEY = (process.env.SUPABASE_ANON_KEY || '').trim();
+  const RESEND_API_KEY = (process.env.RESEND_API_KEY || '').trim();
+  const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || process.env.OWNER_EMAIL || '').trim();
+
+  let dbResult = { status: 'skipped', reason: 'Missing SUPABASE_URL or SUPABASE_ANON_KEY' };
 
   try {
     // -------------------------------------------------------------
@@ -78,7 +80,11 @@ export default async function handler(req, res) {
 
       if (!dbResponse.ok) {
         const errorText = await dbResponse.text();
+        dbResult = { status: 'error', code: dbResponse.status, error: errorText };
         console.error('Supabase DB Insert Error:', errorText);
+      } else {
+        const row = await dbResponse.json().catch(() => null);
+        dbResult = { status: 'success', row: row };
       }
     }
 
@@ -176,7 +182,11 @@ export default async function handler(req, res) {
       }
     }
 
-    return res.status(200).json({ success: true, message: 'Received' });
+    return res.status(200).json({ 
+      success: true, 
+      message: 'Received',
+      db: dbResult
+    });
   } catch (err) {
     console.error('API submit error:', err);
     return res.status(500).json({ error: err.message || 'Internal Server Error' });
