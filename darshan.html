@@ -98,12 +98,12 @@
         <div class="form-card">
           <form data-i18n-confirm="dar.confirm" data-confirm="Received! Your pooja request has been noted on this site.">
             <div class="form-row">
-              <label><span data-i18n="form.name">Name</span> <input name="name" required></label>
-              <label><span data-i18n="form.star">Star (nakshatra)</span> <input name="star"></label>
+              <label><span data-i18n="form.name">Name</span> <input name="name" type="text" autocomplete="name" pattern="[^0-9]*" data-no-digits required></label>
+              <label><span data-i18n="form.star">Star (nakshatra)</span> <input name="star" type="text" data-letters-only required></label>
             </div>
             <div class="form-row">
-              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" required></label>
-              <label><span data-i18n="form.email">Email</span> <input name="email" type="email"></label>
+              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]+" data-digits-only required></label>
+              <label><span data-i18n="form.email">Email</span> <input name="email" type="email" inputmode="email" autocomplete="email" required></label>
             </div>
             <label><span data-i18n="form.offering">Offering</span>
               <select name="offering" required>
@@ -115,8 +115,8 @@
               </select>
             </label>
             <div class="form-row">
-              <label><span data-i18n="form.date">Preferred date</span> <input name="date" type="date"></label>
-              <label><span data-i18n="form.persons">Number of persons</span> <input name="persons" type="number" min="1" value="1"></label>
+              <label><span data-i18n="form.date">Preferred date</span> <input name="date" type="date" data-date-window required></label>
+              <label><span data-i18n="form.persons">Number of persons</span> <input name="persons" type="number" inputmode="numeric" min="1" step="1" value="1" required></label>
             </div>
             <label><span data-i18n="form.notes">Notes</span> <textarea name="notes" data-i18n-placeholder="form.notes.ph" placeholder="Gothram, address for prasadam, or special request"></textarea></label>
             <button class="btn btn-blood" type="submit" data-i18n="form.submit.pooja">Submit request</button>

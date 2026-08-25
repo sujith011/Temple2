@@ -18,6 +18,13 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing submission payload' });
   }
 
+  if (type === 'pooja') {
+    const validationError = validatePooja(data);
+    if (validationError) {
+      return res.status(400).json({ error: validationError });
+    }
+  }
+
   if (type === 'donate') {
     const validationError = validateDonation(data);
     if (validationError) {
@@ -250,6 +257,48 @@ function validateDonation(data) {
   return '';
 }
 
+function validatePooja(data) {
+  const name = typeof data.name === 'string' ? data.name.trim() : '';
+  const star = typeof data.star === 'string' ? data.star.trim() : '';
+  const phone = typeof data.phone === 'string' ? data.phone.trim() : '';
+  const email = typeof data.email === 'string' ? data.email.trim() : '';
+  const offering = typeof data.offering === 'string' ? data.offering.trim() : '';
+  const date = typeof data.date === 'string' ? data.date.trim() : '';
+  const persons = Number(data.persons);
+
+  if (!name || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
+    return 'Name must contain letters and cannot contain numbers';
+  }
+
+  if (!star || !/^[\p{L}\p{M}\s]+$/u.test(star) || !/\p{L}/u.test(star)) {
+    return 'Star must contain letters only';
+  }
+
+  if (!/^\d+$/.test(phone)) {
+    return 'Phone is required and must contain numbers only';
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return 'A valid email address is required';
+  }
+
+  if (!offering) {
+    return 'Offering is required';
+  }
+
+  const today = getDateInTimeZone('Asia/Kolkata');
+  const maximumDate = addCalendarMonths(today, 3);
+  if (!isValidDateString(date) || date < today || date > maximumDate) {
+    return `Preferred date must be between ${today} and ${maximumDate}`;
+  }
+
+  if (!Number.isInteger(persons) || persons < 1) {
+    return 'Number of persons must be a whole number of at least 1';
+  }
+
+  return '';
+}
+
 function validateInquiry(data) {
   const name = typeof data.name === 'string' ? data.name.trim() : '';
   const email = typeof data.email === 'string' ? data.email.trim() : '';
@@ -273,4 +322,31 @@ function validateInquiry(data) {
   }
 
   return '';
+}
+
+function getDateInTimeZone(timeZone) {
+  const parts = new Intl.DateTimeFormat('en', {
+    timeZone,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit'
+  }).formatToParts(new Date());
+  const values = Object.fromEntries(parts.map(({ type, value }) => [type, value]));
+  return `${values.year}-${values.month}-${values.day}`;
+}
+
+function addCalendarMonths(dateString, monthsToAdd) {
+  const [year, month, day] = dateString.split('-').map(Number);
+  const target = new Date(Date.UTC(year, month - 1 + monthsToAdd, 1));
+  const lastDay = new Date(Date.UTC(target.getUTCFullYear(), target.getUTCMonth() + 1, 0)).getUTCDate();
+  const targetDay = Math.min(day, lastDay);
+  const targetMonth = String(target.getUTCMonth() + 1).padStart(2, '0');
+  return `${target.getUTCFullYear()}-${targetMonth}-${String(targetDay).padStart(2, '0')}`;
+}
+
+function isValidDateString(dateString) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(dateString)) return false;
+  const [year, month, day] = dateString.split('-').map(Number);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  return date.toISOString().slice(0, 10) === dateString;
 }

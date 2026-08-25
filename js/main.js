@@ -144,6 +144,35 @@
     });
   });
 
+  document.querySelectorAll("[data-letters-only]").forEach((input) => {
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/[^\p{L}\p{M}\s]/gu, "");
+    });
+  });
+
+  document.querySelectorAll("[data-date-window]").forEach((input) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    const maximum = new Date(today);
+    const targetMonth = maximum.getMonth() + 3;
+    const targetDay = maximum.getDate();
+    maximum.setDate(1);
+    maximum.setMonth(targetMonth);
+    const lastDay = new Date(maximum.getFullYear(), maximum.getMonth() + 1, 0).getDate();
+    maximum.setDate(Math.min(targetDay, lastDay));
+
+    const formatDate = (date) => {
+      const year = date.getFullYear();
+      const month = String(date.getMonth() + 1).padStart(2, "0");
+      const day = String(date.getDate()).padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    };
+
+    input.min = formatDate(today);
+    input.max = formatDate(maximum);
+  });
+
   document.querySelectorAll("form[data-confirm]").forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
