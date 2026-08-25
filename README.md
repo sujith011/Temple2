@@ -11,7 +11,6 @@ A modern website for devotees of Kodungallur Sree Kurumba Bhagavathy Temple.
 - `visit.html` — how to reach, map, Muziris, contact
 - `donate.html` — annadanam, charity, renovation
 - `api/submit.js` — validates forms, stores submissions, and sends email notifications
-- `supabase/schema.sql` — database tables, constraints, indexes, and access controls
 - `js/config.js` — FormSubmit fallback used only when `/api/submit` is unavailable
 
 ## Supabase and Resend setup
@@ -22,7 +21,7 @@ The three forms submit to `/api/submit`. The endpoint stores each request in Sup
 
 1. Create a Supabase project.
 2. Open **SQL Editor** in the Supabase dashboard.
-3. Copy and run all of [`supabase/schema.sql`](supabase/schema.sql).
+3. Run the private database schema supplied separately in the SQL Editor.
 4. Confirm that these tables exist in **Table Editor**:
    - `pooja_requests`
    - `donation_pledges`
