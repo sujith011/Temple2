@@ -42,6 +42,8 @@
     }
   };
 
+  const TEMPLE_MAP_URL = "https://www.google.com/maps/place/Kodungallur+Sree+Kurumba+Bagavathi+Temple/@10.2266218,76.1985779,18z/data=!4m6!3m5!1s0x3b081bf47f4c042f:0x7e6f994f0db02349!8m2!3d10.2268551!4d76.1983452!16s%2Fm%2F06zpy_y?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D";
+
   const topics = {
     timings: {
       keywords: ["time", "timing", "open", "close", "darshan", "hours", "schedule", "സമയം", "തുറക്ക", "അടയ്ക്ക", "ദർശന"],
@@ -50,8 +52,8 @@
     },
     visit: {
       keywords: ["reach", "direction", "address", "map", "bus", "train", "rail", "airport", "travel", "where", "എത്ത", "വിലാസ", "ബസ്", "ട്രെയിൻ", "വിമാന", "യാത്ര", "എവിടെ"],
-      en: ["The temple is on Thekkenada Road, Pettumma, Kodungallur, Thrissur, Kerala 680664. Tap the map button below to open its exact location and get directions in Google Maps.", "Open in Google Maps", "https://www.google.com/maps/search/?api=1&query=10.226833%2C76.198425", "map"],
-      ml: ["ക്ഷേത്രം തേക്കേനട റോഡ്, പെറ്റുമ്മ, കൊടുങ്ങല്ലൂർ, തൃശ്ശൂർ, കേരളം 680664 എന്ന വിലാസത്തിലാണ്. കൃത്യമായ സ്ഥാനം കാണാനും വഴി കണ്ടെത്താനും താഴെയുള്ള മാപ്പ് ബട്ടൺ അമർത്തുക.", "Google Maps-ൽ തുറക്കുക", "https://www.google.com/maps/search/?api=1&query=10.226833%2C76.198425", "map"]
+      en: ["The temple is on Thekkenada Road, Pettumma, Kodungallur, Thrissur, Kerala 680664. Tap the map button below to open its exact location and get directions in Google Maps.", "Open in Google Maps", TEMPLE_MAP_URL, "map"],
+      ml: ["ക്ഷേത്രം തേക്കേനട റോഡ്, പെറ്റുമ്മ, കൊടുങ്ങല്ലൂർ, തൃശ്ശൂർ, കേരളം 680664 എന്ന വിലാസത്തിലാണ്. കൃത്യമായ സ്ഥാനം കാണാനും വഴി കണ്ടെത്താനും താഴെയുള്ള മാപ്പ് ബട്ടൺ അമർത്തുക.", "Google Maps-ൽ തുറക്കുക", TEMPLE_MAP_URL, "map"]
     },
     pooja: {
       keywords: ["pooja", "puja", "offering", "vazhipadu", "book", "nakshatra", "guruthy", "archana", "വഴിപാട്", "പൂജ", "ബുക്ക്", "നക്ഷത്ര", "ഗുരുതി", "അർച്ചന"],
