@@ -13,6 +13,10 @@ A modern website for devotees of Kodungallur Sree Kurumba Bhagavathy Temple.
 - `api/submit.js` — validates forms, stores submissions, and sends email notifications
 - `js/config.js` — FormSubmit fallback used only when `/api/submit` is unavailable
 
+## Temple Guide chatbot
+
+The floating Temple Guide is available on every page. It answers common questions in English and Malayalam using information already published on this website, then links visitors to the relevant page or form. It runs entirely in the browser, stores no conversation data, and does not require an AI API key.
+
 ## Supabase and Resend setup
 
 The three forms submit to `/api/submit`. The endpoint stores each request in Supabase and sends an admin notification plus a devotee auto-reply through Resend.

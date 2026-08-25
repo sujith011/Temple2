@@ -44,6 +44,10 @@
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.setAttribute("aria-pressed", String(btn.dataset.lang === lang));
     });
+
+    document.dispatchEvent(new CustomEvent("temple:languagechange", {
+      detail: { language: lang }
+    }));
   }
 
   const favicon = document.createElement("link");
