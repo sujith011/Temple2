@@ -14,8 +14,12 @@ export default async function handler(req, res) {
 
   const { type, data } = req.body || {};
 
-  if (!type || !data) {
+  if (!type || !data || typeof data !== 'object' || Array.isArray(data)) {
     return res.status(400).json({ error: 'Missing submission payload' });
+  }
+
+  if (!['pooja', 'donate', 'inquiry'].includes(type)) {
+    return res.status(400).json({ error: 'Unsupported form type' });
   }
 
   if (type === 'pooja') {
@@ -45,17 +49,21 @@ export default async function handler(req, res) {
     rawUrl = `https://${matchDashboard[1]}.supabase.co`;
   }
   const SUPABASE_URL = rawUrl.replace(/\/rest\/v1\/?$/i, '');
-  const SUPABASE_ANON_KEY = (process.env.SUPABASE_ANON_KEY || '').trim();
+  const SUPABASE_SECRET_KEY = (
+    process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || ''
+  ).trim();
   const RESEND_API_KEY = (process.env.RESEND_API_KEY || '').trim();
+  const RESEND_FROM_EMAIL = (process.env.RESEND_FROM_EMAIL || '').trim();
   const ADMIN_EMAIL = (process.env.ADMIN_EMAIL || process.env.OWNER_EMAIL || '').trim();
 
-  let dbResult = { status: 'skipped', reason: 'Missing SUPABASE_URL or SUPABASE_ANON_KEY' };
+  let dbResult = { status: 'skipped' };
+  let emailResult = { status: 'skipped' };
 
   try {
     // -------------------------------------------------------------
     // 1. SAVE INTO SUPABASE DATABASE
     // -------------------------------------------------------------
-    if (SUPABASE_URL && SUPABASE_ANON_KEY) {
+    if (SUPABASE_URL && SUPABASE_SECRET_KEY) {
       let tableName = 'inquiries';
       let dbRecord = {};
 
@@ -87,40 +95,46 @@ export default async function handler(req, res) {
         tableName = 'inquiries';
         dbRecord = {
           name: data.name || '',
-          contact: [data.email, data.phone].filter(Boolean).join(' / '),
+          email: data.email || '',
+          phone: data.phone || null,
           message: data.message || '',
           status: 'pending'
         };
       }
 
       const endpoint = `${SUPABASE_URL}/rest/v1/${tableName}`;
+      const dbHeaders = {
+        'apikey': SUPABASE_SECRET_KEY,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Prefer': 'return=minimal'
+      };
+
+      // Legacy service-role keys are JWTs and also require Authorization.
+      // New sb_secret_ keys must be sent through the apikey header only.
+      if (!SUPABASE_SECRET_KEY.startsWith('sb_secret_')) {
+        dbHeaders.Authorization = `Bearer ${SUPABASE_SECRET_KEY}`;
+      }
 
       const dbResponse = await fetch(endpoint, {
         method: 'POST',
-        headers: {
-          'apikey': SUPABASE_ANON_KEY,
-          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Prefer': 'return=representation'
-        },
+        headers: dbHeaders,
         body: JSON.stringify(dbRecord)
       });
 
       if (!dbResponse.ok) {
         const errorText = await dbResponse.text();
-        dbResult = { status: 'error', code: dbResponse.status, endpoint: endpoint, error: errorText };
-        console.error('Supabase DB Insert Error:', errorText);
+        console.error('Supabase insert failed:', dbResponse.status, errorText);
+        throw new Error('Database insert failed');
       } else {
-        const row = await dbResponse.json().catch(() => null);
-        dbResult = { status: 'success', endpoint: endpoint, row: row };
+        dbResult = { status: 'success' };
       }
     }
 
     // -------------------------------------------------------------
     // 2. DISPATCH EMAILS VIA RESEND
     // -------------------------------------------------------------
-    if (RESEND_API_KEY) {
+    if (RESEND_API_KEY && RESEND_FROM_EMAIL && ADMIN_EMAIL) {
       // Form titles & subject lines
       const titles = {
         pooja: 'New Pooja / Vazhipadu Booking Request',
@@ -156,26 +170,18 @@ export default async function handler(req, res) {
       `;
 
       // 2A. Send Email to Admin/Owner
-      if (ADMIN_EMAIL) {
-        await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${RESEND_API_KEY}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            from: 'Kodungallur Portal <onboarding@resend.dev>',
-            to: [ADMIN_EMAIL],
-            subject: subject,
-            html: adminHtml
-          })
+      try {
+        await sendResendEmail(RESEND_API_KEY, {
+          from: RESEND_FROM_EMAIL,
+          to: [ADMIN_EMAIL],
+          subject: subject,
+          html: adminHtml
         });
-      }
 
-      // 2B. Send "Received" Auto-Reply to Devotee / User (if they entered an email)
-      const devoteeEmail = data.email || (data.contact && data.contact.includes('@') ? data.contact : null);
-      if (devoteeEmail) {
-        const userAutoReplyHtml = `
+        // 2B. Send "Received" Auto-Reply to Devotee / User (if they entered an email)
+        const devoteeEmail = data.email || null;
+        if (devoteeEmail) {
+          const userAutoReplyHtml = `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #333; line-height: 1.6;">
             <div style="background: #6b1d1d; color: #fff; padding: 18px 24px; border-radius: 8px 8px 0 0;">
               <h2 style="margin: 0; color: #f5eedf; font-size: 20px;">Sree Kurumba Bhagavathy Temple</h2>
@@ -195,30 +201,51 @@ export default async function handler(req, res) {
           </div>
         `;
 
-        await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            'Authorization': `Bearer ${RESEND_API_KEY}`,
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            from: 'Kodungallur Temple <onboarding@resend.dev>',
+          await sendResendEmail(RESEND_API_KEY, {
+            from: RESEND_FROM_EMAIL,
             to: [devoteeEmail],
             subject: 'Received: Your Request at Kodungallur Temple',
             html: userAutoReplyHtml
-          })
-        });
+          });
+        }
+
+        emailResult = { status: 'success' };
+      } catch (emailError) {
+        console.error('Resend delivery failed:', emailError.message);
+        emailResult = { status: 'error' };
       }
+    }
+
+    if (dbResult.status !== 'success' && emailResult.status !== 'success') {
+      return res.status(503).json({ error: 'Form delivery is not configured' });
     }
 
     return res.status(200).json({ 
       success: true, 
       message: 'Received',
-      db: dbResult
+      storage: dbResult.status,
+      email: emailResult.status
     });
   } catch (err) {
     console.error('API submit error:', err);
-    return res.status(500).json({ error: err.message || 'Internal Server Error' });
+    return res.status(500).json({ error: 'Unable to process the request' });
+  }
+}
+
+async function sendResendEmail(apiKey, payload) {
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${apiKey}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error('Resend API error:', response.status, errorText);
+    throw new Error('Email delivery failed');
   }
 }
 
@@ -238,20 +265,28 @@ function validateDonation(data) {
   const email = typeof data.email === 'string' ? data.email.trim() : '';
   const amount = Number(data.amount);
 
-  if (!name || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
+  if (!name || name.length > 150 || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
     return 'Name must contain letters and cannot contain numbers';
   }
 
-  if (!/^\d+$/.test(phone)) {
+  if (!/^\d{1,20}$/.test(phone)) {
     return 'Phone is required and must contain numbers only';
   }
 
-  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (email && (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))) {
     return 'Email address is invalid';
+  }
+
+  if (!['annadanam', 'charity', 'renovation'].includes(data.cause)) {
+    return 'Donation cause is invalid';
   }
 
   if (!Number.isInteger(amount) || amount < 100) {
     return 'Amount must be a whole number of at least 100 INR';
+  }
+
+  if (typeof data.note === 'string' && data.note.length > 2000) {
+    return 'Note is too long';
   }
 
   return '';
@@ -266,24 +301,24 @@ function validatePooja(data) {
   const date = typeof data.date === 'string' ? data.date.trim() : '';
   const persons = Number(data.persons);
 
-  if (!name || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
+  if (!name || name.length > 150 || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
     return 'Name must contain letters and cannot contain numbers';
   }
 
-  if (!star || !/^[\p{L}\p{M}\s]+$/u.test(star) || !/\p{L}/u.test(star)) {
+  if (!star || star.length > 100 || !/^[\p{L}\p{M}\s]+$/u.test(star) || !/\p{L}/u.test(star)) {
     return 'Star must contain letters only';
   }
 
-  if (!/^\d+$/.test(phone)) {
+  if (!/^\d{1,20}$/.test(phone)) {
     return 'Phone is required and must contain numbers only';
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return 'A valid email address is required';
   }
 
-  if (!offering) {
-    return 'Offering is required';
+  if (!['nakshatra', 'guruthy', 'archana', 'rektha', 'other'].includes(offering)) {
+    return 'Offering is invalid';
   }
 
   const today = getDateInTimeZone('Asia/Kolkata');
@@ -296,6 +331,10 @@ function validatePooja(data) {
     return 'Number of persons must be a whole number of at least 1';
   }
 
+  if (typeof data.notes === 'string' && data.notes.length > 2000) {
+    return 'Notes are too long';
+  }
+
   return '';
 }
 
@@ -305,19 +344,19 @@ function validateInquiry(data) {
   const phone = typeof data.phone === 'string' ? data.phone.trim() : '';
   const message = typeof data.message === 'string' ? data.message.trim() : '';
 
-  if (!name || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
+  if (!name || name.length > 150 || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
     return 'Name must contain letters and cannot contain numbers';
   }
 
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return 'A valid email address is required';
   }
 
-  if (phone && !/^\d+$/.test(phone)) {
+  if (phone && !/^\d{1,20}$/.test(phone)) {
     return 'Phone must contain numbers only';
   }
 
-  if (!message) {
+  if (!message || message.length > 5000) {
     return 'Message is required';
   }
 

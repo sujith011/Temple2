@@ -235,6 +235,13 @@
           return;
         }
 
+        // Only use the external fallback when this deployment has no API route.
+        // Validation, database, or email errors from an existing API must surface
+        // to the user instead of silently bypassing Supabase.
+        if (response.status !== 404 && response.status !== 405) {
+          throw new Error("Server submission failed");
+        }
+
         // 2. Fallback to FormSubmit if /api/submit is not configured
         const recipient = config.adminEmail || "templeoffice@example.com";
         const fallbackRes = await fetch(`https://formsubmit.co/ajax/${encodeURIComponent(recipient)}`, {

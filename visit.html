@@ -107,12 +107,12 @@
         </div>
         <div class="form-card">
           <form data-i18n-confirm="vis.confirm" data-confirm="Received! Thank you. Your message has been recorded on this site.">
-            <label><span data-i18n="form.name">Name</span> <input name="name" type="text" autocomplete="name" pattern="[^0-9]*" data-no-digits required></label>
+            <label><span data-i18n="form.name">Name</span> <input name="name" type="text" autocomplete="name" maxlength="150" pattern="[^0-9]*" data-no-digits required></label>
             <div class="form-row">
-              <label><span data-i18n="form.email">Email</span> <input name="email" type="email" inputmode="email" autocomplete="email" required></label>
-              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]+" data-digits-only></label>
+              <label><span data-i18n="form.email">Email</span> <input name="email" type="email" inputmode="email" autocomplete="email" maxlength="254" required></label>
+              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="20" pattern="[0-9]+" data-digits-only></label>
             </div>
-            <label><span data-i18n="form.message">Message</span> <textarea name="message" required></textarea></label>
+            <label><span data-i18n="form.message">Message</span> <textarea name="message" maxlength="5000" required></textarea></label>
             <button class="btn btn-blood" type="submit" data-i18n="form.send">Send message</button>
             <p class="form-success" role="status"></p>
             <p class="form-error" role="alert"></p>

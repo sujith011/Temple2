@@ -59,10 +59,10 @@
         </div>
         <div class="form-card">
           <form data-i18n-confirm="don.confirm" data-confirm="Received! Your donation pledge has been recorded.">
-            <label><span data-i18n="form.name">Name</span> <input name="name" type="text" autocomplete="name" pattern="[^0-9]*" data-no-digits required></label>
+            <label><span data-i18n="form.name">Name</span> <input name="name" type="text" autocomplete="name" maxlength="150" pattern="[^0-9]*" data-no-digits required></label>
             <div class="form-row">
-              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]+" data-digits-only required></label>
-              <label><span data-i18n="form.email">Email</span> <input name="email" type="email" inputmode="email" autocomplete="email"></label>
+              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" inputmode="numeric" autocomplete="tel" maxlength="20" pattern="[0-9]+" data-digits-only required></label>
+              <label><span data-i18n="form.email">Email</span> <input name="email" type="email" inputmode="email" autocomplete="email" maxlength="254"></label>
             </div>
             <label><span data-i18n="form.cause">Cause</span>
               <select name="cause" required>
@@ -80,7 +80,7 @@
               <button type="button" data-amount="5001">₹5,001</button>
               <button type="button" data-amount="10001">₹10,001</button>
             </div>
-            <label><span data-i18n="form.note">Note</span> <textarea name="note" data-i18n-placeholder="form.note.ph" placeholder="In whose name, or a dedication"></textarea></label>
+            <label><span data-i18n="form.note">Note</span> <textarea name="note" maxlength="2000" data-i18n-placeholder="form.note.ph" placeholder="In whose name, or a dedication"></textarea></label>
             <button class="btn btn-blood" type="submit" data-i18n="form.pledge">Pledge this gift</button>
             <p class="form-success" role="status"></p>
             <p class="form-error" role="alert"></p>
