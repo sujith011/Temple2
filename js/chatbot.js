@@ -50,8 +50,8 @@
     },
     visit: {
       keywords: ["reach", "direction", "address", "map", "bus", "train", "rail", "airport", "travel", "where", "എത്ത", "വിലാസ", "ബസ്", "ട്രെയിൻ", "വിമാന", "യാത്ര", "എവിടെ"],
-      en: ["The temple is on Thekkenada Road, Pettumma, Kodungallur, Thrissur, Kerala 680664. It is about 700 m from the private bus stand, 16–20 km from Irinjalakuda railway station, and 31 km from Cochin International Airport.", "Map and travel details", "visit.html"],
-      ml: ["ക്ഷേത്രം തേക്കേനട റോഡ്, പെറ്റുമ്മ, കൊടുങ്ങല്ലൂർ, തൃശ്ശൂർ, കേരളം 680664 എന്ന വിലാസത്തിലാണ്. സ്വകാര്യ ബസ് സ്റ്റാൻഡിൽ നിന്ന് ഏകദേശം 700 മീറ്റർ, ഇരിങ്ങാലക്കുട റെയിൽവേ സ്റ്റേഷനിൽ നിന്ന് 16–20 കി.മീ., കൊച്ചി വിമാനത്താവളത്തിൽ നിന്ന് 31 കി.മീ. ദൂരമുണ്ട്.", "ഭൂപടവും യാത്രാവിവരങ്ങളും", "visit.html"]
+      en: ["The temple is on Thekkenada Road, Pettumma, Kodungallur, Thrissur, Kerala 680664. Tap the map button below to open its exact location and get directions in Google Maps.", "Open in Google Maps", "https://www.google.com/maps/search/?api=1&query=10.226833%2C76.198425", "map"],
+      ml: ["ക്ഷേത്രം തേക്കേനട റോഡ്, പെറ്റുമ്മ, കൊടുങ്ങല്ലൂർ, തൃശ്ശൂർ, കേരളം 680664 എന്ന വിലാസത്തിലാണ്. കൃത്യമായ സ്ഥാനം കാണാനും വഴി കണ്ടെത്താനും താഴെയുള്ള മാപ്പ് ബട്ടൺ അമർത്തുക.", "Google Maps-ൽ തുറക്കുക", "https://www.google.com/maps/search/?api=1&query=10.226833%2C76.198425", "map"]
     },
     pooja: {
       keywords: ["pooja", "puja", "offering", "vazhipadu", "book", "nakshatra", "guruthy", "archana", "വഴിപാട്", "പൂജ", "ബുക്ക്", "നക്ഷത്ര", "ഗുരുതി", "അർച്ചന"],
@@ -140,7 +140,15 @@
     if (link) {
       const anchor = document.createElement("a");
       anchor.href = link[1];
-      anchor.textContent = `${link[0]} →`;
+      if (link[2] === "map") {
+        anchor.className = "chat-map-link";
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+        anchor.innerHTML = `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><span></span>`;
+        anchor.querySelector("span").textContent = link[0];
+      } else {
+        anchor.textContent = `${link[0]} →`;
+      }
       message.appendChild(anchor);
     }
     messages.appendChild(message);
@@ -179,7 +187,7 @@
       const matchedTopic = topicKey || findTopic(question);
       if (matchedTopic) {
         const answer = topics[matchedTopic][language];
-        addMessage(answer[0], "guide", [answer[1], answer[2]]);
+        addMessage(answer[0], "guide", [answer[1], answer[2], answer[3]]);
       } else {
         addMessage(currentCopy().fallback, "guide", [currentCopy().officeLink, "visit.html#contact"]);
       }
