@@ -25,6 +25,13 @@ export default async function handler(req, res) {
     }
   }
 
+  if (type === 'inquiry') {
+    const validationError = validateInquiry(data);
+    if (validationError) {
+      return res.status(400).json({ error: validationError });
+    }
+  }
+
   let rawUrl = (process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
   const matchDashboard = rawUrl.match(/supabase\.com\/dashboard\/project\/([a-zA-Z0-9_-]+)/i);
   if (matchDashboard) {
@@ -73,7 +80,7 @@ export default async function handler(req, res) {
         tableName = 'inquiries';
         dbRecord = {
           name: data.name || '',
-          contact: data.contact || '',
+          contact: [data.email, data.phone].filter(Boolean).join(' / '),
           message: data.message || '',
           status: 'pending'
         };
@@ -238,6 +245,31 @@ function validateDonation(data) {
 
   if (!Number.isInteger(amount) || amount < 100) {
     return 'Amount must be a whole number of at least 100 INR';
+  }
+
+  return '';
+}
+
+function validateInquiry(data) {
+  const name = typeof data.name === 'string' ? data.name.trim() : '';
+  const email = typeof data.email === 'string' ? data.email.trim() : '';
+  const phone = typeof data.phone === 'string' ? data.phone.trim() : '';
+  const message = typeof data.message === 'string' ? data.message.trim() : '';
+
+  if (!name || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
+    return 'Name must contain letters and cannot contain numbers';
+  }
+
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return 'A valid email address is required';
+  }
+
+  if (phone && !/^\d+$/.test(phone)) {
+    return 'Phone must contain numbers only';
+  }
+
+  if (!message) {
+    return 'Message is required';
   }
 
   return '';
