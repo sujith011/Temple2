@@ -18,6 +18,13 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing submission payload' });
   }
 
+  if (type === 'donate') {
+    const validationError = validateDonation(data);
+    if (validationError) {
+      return res.status(400).json({ error: validationError });
+    }
+  }
+
   let rawUrl = (process.env.SUPABASE_URL || '').trim().replace(/\/+$/, '');
   const matchDashboard = rawUrl.match(/supabase\.com\/dashboard\/project\/([a-zA-Z0-9_-]+)/i);
   if (matchDashboard) {
@@ -209,4 +216,29 @@ function escapeHtml(str) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+function validateDonation(data) {
+  const name = typeof data.name === 'string' ? data.name.trim() : '';
+  const phone = typeof data.phone === 'string' ? data.phone.trim() : '';
+  const email = typeof data.email === 'string' ? data.email.trim() : '';
+  const amount = Number(data.amount);
+
+  if (!name || /\p{N}/u.test(name) || !/\p{L}/u.test(name)) {
+    return 'Name must contain letters and cannot contain numbers';
+  }
+
+  if (!/^\d+$/.test(phone)) {
+    return 'Phone is required and must contain numbers only';
+  }
+
+  if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return 'Email address is invalid';
+  }
+
+  if (!Number.isInteger(amount) || amount < 100) {
+    return 'Amount must be a whole number of at least 100 INR';
+  }
+
+  return '';
 }

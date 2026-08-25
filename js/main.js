@@ -127,6 +127,23 @@
     btn.addEventListener("click", () => applyLang(btn.dataset.lang));
   });
 
+  document.querySelectorAll("[data-no-digits]").forEach((input) => {
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/\p{N}/gu, "");
+      input.setCustomValidity(
+        input.value && !/\p{L}/u.test(input.value)
+          ? "Please enter a name using letters."
+          : ""
+      );
+    });
+  });
+
+  document.querySelectorAll("[data-digits-only]").forEach((input) => {
+    input.addEventListener("input", () => {
+      input.value = input.value.replace(/\D/g, "");
+    });
+  });
+
   document.querySelectorAll("form[data-confirm]").forEach((form) => {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -228,15 +245,6 @@
           submitBtn.textContent = originalBtnText;
         }
       }
-    });
-  });
-
-  document.querySelectorAll(".amounts button").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const input = document.querySelector("#amount");
-      document.querySelectorAll(".amounts button").forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-      if (input) input.value = btn.dataset.amount;
     });
   });
 

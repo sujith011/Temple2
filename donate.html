@@ -59,10 +59,10 @@
         </div>
         <div class="form-card">
           <form data-i18n-confirm="don.confirm" data-confirm="Received! Your donation pledge has been recorded.">
-            <label><span data-i18n="form.name">Name</span> <input name="name" required></label>
+            <label><span data-i18n="form.name">Name</span> <input name="name" type="text" autocomplete="name" pattern="[^0-9]*" data-no-digits required></label>
             <div class="form-row">
-              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" required></label>
-              <label><span data-i18n="form.email">Email</span> <input name="email" type="email"></label>
+              <label><span data-i18n="form.phone">Phone</span> <input name="phone" type="tel" inputmode="numeric" autocomplete="tel" pattern="[0-9]+" data-digits-only required></label>
+              <label><span data-i18n="form.email">Email</span> <input name="email" type="email" inputmode="email" autocomplete="email"></label>
             </div>
             <label><span data-i18n="form.cause">Cause</span>
               <select name="cause" required>
@@ -72,14 +72,8 @@
               </select>
             </label>
             <label><span data-i18n="form.amount">Amount (INR)</span>
-              <input id="amount" name="amount" type="number" min="100" step="100" value="1001" required>
+              <input id="amount" name="amount" type="number" inputmode="numeric" min="100" step="1" value="1001" required>
             </label>
-            <div class="amounts" role="group" aria-label="Suggested amounts">
-              <button type="button" data-amount="501">₹501</button>
-              <button type="button" data-amount="1001" class="active">₹1,001</button>
-              <button type="button" data-amount="5001">₹5,001</button>
-              <button type="button" data-amount="10001">₹10,001</button>
-            </div>
             <label><span data-i18n="form.note">Note</span> <textarea name="note" data-i18n-placeholder="form.note.ph" placeholder="In whose name, or a dedication"></textarea></label>
             <button class="btn btn-blood" type="submit" data-i18n="form.pledge">Pledge this gift</button>
             <p class="form-success" role="status"></p>
