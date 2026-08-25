@@ -758,6 +758,29 @@ button[type="submit"]:disabled {
   box-shadow: var(--shadow);
 }
 
+.amounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.amounts button {
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--teak);
+  border-radius: 999px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font: inherit;
+}
+
+.amounts button.active,
+.amounts button:hover {
+  background: var(--blood);
+  color: #fff;
+  border-color: var(--blood);
+}
+
 /* Visit */
 .map-frame {
   width: 100%;

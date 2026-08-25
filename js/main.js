@@ -248,6 +248,16 @@
     });
   });
 
+  document.querySelectorAll(".amounts button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const input = document.querySelector("#amount");
+      document.querySelectorAll(".amounts button").forEach((button) => {
+        button.classList.toggle("active", button === btn);
+      });
+      if (input) input.value = btn.dataset.amount;
+    });
+  });
+
   if (window.gsap && window.ScrollTrigger) {
     gsap.registerPlugin(ScrollTrigger);
 

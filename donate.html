@@ -74,6 +74,12 @@
             <label><span data-i18n="form.amount">Amount (INR)</span>
               <input id="amount" name="amount" type="number" inputmode="numeric" min="100" step="1" value="1001" required>
             </label>
+            <div class="amounts" role="group" aria-label="Suggested amounts">
+              <button type="button" data-amount="501">₹501</button>
+              <button type="button" data-amount="1001" class="active">₹1,001</button>
+              <button type="button" data-amount="5001">₹5,001</button>
+              <button type="button" data-amount="10001">₹10,001</button>
+            </div>
             <label><span data-i18n="form.note">Note</span> <textarea name="note" data-i18n-placeholder="form.note.ph" placeholder="In whose name, or a dedication"></textarea></label>
             <button class="btn btn-blood" type="submit" data-i18n="form.pledge">Pledge this gift</button>
             <p class="form-success" role="status"></p>
